@@ -121,7 +121,7 @@ In this lab you'll add an additional quality gate to your CI pipeline. In other 
 
 1. Note the additional timeseries for the `front-end` service. The `staging` environment will be the target for our testing.
 
-## Step 3: Add a timeseries metric for Service Method addToCart
+## Step 3: Create a calculated service metric for Service Method addToCart
 
 In some cases it is not sufficient to look at the Service level for performance degradations. This is certainly so in large tests that hit many endpoints of a service. This could lead to the results being skewed as very fast responses on one service method could average out the (perhaps fewer in number) slow requests on the degraded service methods.
 
