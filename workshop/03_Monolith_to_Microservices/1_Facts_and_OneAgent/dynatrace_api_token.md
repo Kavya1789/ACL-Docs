@@ -9,10 +9,7 @@ For the Autonomous Cloud lab, we need to generate a Dynatrace API token.
 
 The name of the token is not important, a good suggestion would be ```ACL```
 
-The token that we need for the ACL needs at least the following scopes:
-* Access problem and event feed, metrics, and topology
-* Read configuration
-* Write configuration
+For lab purposes we are going to grant access to all the scope for API v1 and API v2 (this is not a recommended approach for production environments)
 
 To generate a token in your Dynatrace tenant, go to Settings -> Integration -> Dynatrace API.
 
