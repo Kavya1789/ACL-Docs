@@ -7,19 +7,47 @@ We will install [Keptn](https://keptn.sh/) on your GKE cluster and use the quali
     (bastion)$ keptn
     ```
 1. You will be presented with a response like the following:
-![keptn](./assets/keptnCLI.png)
+![keptn](./assets/keptn-cli-response.png)
 
 
-# Step 2: Install the keptn runtime
+## Step 2: Install the keptn runtime
 1. To install the keptn runtime on your cluster, execute the following command:
     ```
     (bastion)$ keptn install --endpoint-service-type=LoadBalancer
     ```
 2. The installer will ask you for the following information:
     - Cluster name (should already be prefilled)
-
 ![keptn](./assets/keptn-Install.png)
 
 1. Confirm your entry. The keptn installation process will commence.
-
 ![keptn_install](./assets/keptn_installation_logs.png)
+
+## Step 3: Authenticate keptn API
+
+1. Create Keptn  Endpoint Token and API Environment Variables
+    ```bash
+    (bastion)$ export KEPTN_ENDPOINT=http://$(kubectl -n keptn get service api-gateway-nginx -ojsonpath='{.status.loadBalancer.ingress[0].ip}')/api
+    (bastion)$ export KEPTN_API_TOKEN=$(kubectl get secret keptn-api-token -n keptn -ojsonpath={.data.keptn-api-token} | base64 --decode)
+
+    ```
+2. Use this stored information and authenticate the CLI.
+    ```bash
+    (bastion)$ keptn auth --endpoint=$KEPTN_ENDPOINT --api-token=$KEPTN_API_TOKEN
+    ```
+3. If you want, you can go ahead and take a look at the Keptn API by navigating to the endpoint that is given via
+    ```bash
+    (bastion)$ echo $KEPTN_ENDPOINT
+    ```
+## Step 4: Authenticate keptn bridge
+
+After installing and exposing Keptn, you can access the Keptn Bridge by using a browser and navigating to the Keptn endpoint. 
+
+1. The Keptn Bridge has basic authentication enabled by default and the default user is keptn with an automatically generated password.
+    ```bash
+    (bastion)$ keptn configure bridge --output
+    ```
+2. We also need to set the bridge URL as an environment variable as it will be used in the scripts of the next lab.
+
+    ```bash
+      (bastion)$ export KEPTN_BRIDGE=http://$(kubectl -n keptn get service api-gateway-nginx -ojsonpath='{.status.loadBalancer.ingress[0].ip}')/bridge   
+    ```

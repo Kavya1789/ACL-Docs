@@ -22,21 +22,6 @@ With this script, you have created an Ingress based on the following manifest.
 Besides, the script has created a gateway resource for you so that the onboarded services are also available publicly.
 ![keptn](./assets/keptngateway.png)
 
-## Step 2: Authenticate keptn API
-
-1. Create Keptn API and Endpoint Token Environment Variables
-    ```bash
-    (bastion)$ KEPTN_ENDPOINT=http://$(kubectl -n keptn get ingress api-keptn-ingress -ojsonpath='{.spec.rules[0].host}')/api
-    (bastion)$ KEPTN_API_TOKEN=$(kubectl get secret keptn-api-token -n keptn -ojsonpath='{.data.keptn-api-token}' | base64 --decode)
-    ```
-2. Use this stored information and authenticate the CLI.
-    ```bash
-    (bastion)$ keptn auth --endpoint=$KEPTN_ENDPOINT --api-token=$KEPTN_API_TOKEN
-    ```
-3. If you want, you can go ahead and take a look at the Keptn API by navigating to the endpoint that is given via
-    ```bash
-    (bastion)$ echo $KEPTN_ENDPOINT
-    ```
 
 ## Step 3: Configure the Dynatrace Service for keptn
 
