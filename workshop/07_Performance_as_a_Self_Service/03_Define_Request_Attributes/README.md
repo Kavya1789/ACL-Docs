@@ -5,7 +5,7 @@ For further information on how to capture request attributes, [please see this p
 
 ## Step 1: Create Request Attribute for Load Test Name (LTN)
 1. Go to **Settings**, **Server-side monitoring**, and click on **Request attributes**.
-1. Click the **Create new request attribute** button.
+1. Click the **Define new request attribute** button.
 1. Provide a unique *Request attribute name*: `LTN`.
 1. Click on **Add new data source**.
 1. Select the *Request attribute source*: `HTTP request header`.
