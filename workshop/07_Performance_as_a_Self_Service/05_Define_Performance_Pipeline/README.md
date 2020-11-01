@@ -145,6 +145,22 @@ indicators:
 1. At *Build Configuration* check if *Script Path* is set to `Jenkinsfile.performance`.
 2. Finally, click **Save**.
 
+## Step 6: Set the keptn variables inside Jenkins
+
+Set the variables for the pipeline.
+
+```
+(bastion)$ export KEPTN_API_TOKEN=$(kubectl get secret keptn-api-token -n keptn -ojsonpath={.data.keptn-api-token} | base64 --decode)
+(bastion)$ echo $KEPTN_API_TOKEN
+(bastion)$ export KEPTN_BRIDGE=http://$(kubectl -n keptn get service api-gateway-nginx -ojsonpath='{.status.loadBalancer.ingress[0].ip}')/bridge
+(bastion)$ echo $KEPTN_BRIDGE
+(bastion)$ export KEPTN_ENDPOINT=http://$(kubectl -n keptn get service api-gateway-nginx -ojsonpath='{.status.loadBalancer.ingress[0].ip}')/api
+(bastion)$ echo $KEPTN_ENDPOINT
+```
+
+Then inside Jenkins go into Manage `Jenkins > Configure System > Global properties` a set the variables values.
+
+![keptn](./assets/keptn-variables.png)
 
 ---
 

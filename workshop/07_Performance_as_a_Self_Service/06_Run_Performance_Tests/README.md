@@ -6,7 +6,8 @@ In this lab you'll trigger a performance test for (1) the current implementation
 
 1. Go to  **Jenkins** and click on **sockshop** folder.
 1. Click on **carts.performance**.
-1. Click on **Build Now** to trigger the performance pipeline.
+1. Click on **Build with parameters** to trigger the performance pipeline. (leave the default values).
+1. Wait until the pipeline shows: *Success*.
 
 ## Step 2: Introduce a slowdown in the Carts Service
 
@@ -18,48 +19,25 @@ In this lab you'll trigger a performance test for (1) the current implementation
 
 1. Go to **Jenkins** and click on the **sockshop** folder.
 1. Click on **carts** and select the **master** branch.
-1. Click on **Build Now** to trigger the pipeline.
-1. Wait until the pipeline shows: *Success*.
+2. Click on **Build Now** to trigger the pipeline. 
+3. Wait until the pipeline shows: *Success*.
 
 ## Step 4: Run Performance Test on new Version
 
 1. Go to **Jenkins** and click on the **sockshop** folder.
 1. Click on **carts.performance** and select the **master** branch.  
-1. Click on **Build Now** to trigger the performance pipeline.
+1. Click on **Build with parameters** to trigger the performance pipeline (leave the default values).
+2. Wait until the pipeline shows: *Failure*.
 
-## Step 5: Review Performance Signature Plugin Configuration
 
-1. Review the Jenkinsfile.performance perfSigDynatraceReports step:
 
-    ```
-    perfSigDynatraceReports(
-        envId: 'Dynatrace Tenant', 
-        nonFunctionalFailure: 1, 
-        specFile: "monspec/${env.APP_NAME}_perfsig.json"
-    ```
+## Step 5: Explore Results in Keptn bridge
 
-1. In this case the pipeline will be marked as unstable due to the nonFunctionalFailure parameter being set to 1.
+1. After the pipeline finished the job click on the job ID and then go to Console Output to visualize the pipeline results.
 
-- This parameter has 3 possible values:
-    - 0: don’t impact the build state
-    - 1: mark the build as unstable
-    - 2: mark the build as failed
 
-![performance_trend](../assets/carts_performance_pipeline.png)
+## Step 6: Explore Results in Dynatrace
 
-## Step 6: Explore Results in Jenkins
-
-1. After a successful pipeline execution, click on **Performance Trend**. 
-This opens a trend analysis of the jMeter test results. In more details, it shows a chart for the throughput, response time, and percentage of errors as shown below.
-![performance_trend](../assets/performance_trend.png)
-
-1. Click on **Performance Signature**.
-There you get an overview of the last builds similar to the screenshot below. 
-![jenkins_result](../assets/jenkins_result.png)
-
-1. Click on the **Build No** of one particular build and click on **Performance Signature**.
-This opens a detailed view about the performance validation of the selected build. 
-![build_result](../assets/build_result.png)
 
 ---
 
