@@ -25,7 +25,8 @@ Retrieve the Keptn credentials using the following
 
  Inside Jenkins go into `Manage Jenkins > Manage credentials ` and select the first element with the house icon.
 ![keptn](./assets/jenkins-store.png)
-Then click `Global credentials > Add credentials` and store the values from step 2.Repeat the process for each variable.
+
+Then click `Global credentials > Add credentials`, use the dropdown Kind and select `secret` and input the values from step 2. Repeat the process for each variable.
 
 ![keptn](./assets/keptn-api1.png)
 ![keptn](./assets/keptn-bridge1.png)
