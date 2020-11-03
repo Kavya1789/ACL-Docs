@@ -4,7 +4,7 @@ In this lab you'll learn how to configure the Keptn library for Jenkins.
 
 ## Step 1: Review Keptn library installation
 Go into Jenkins and review the [keptn library](https://github.com/keptn-sandbox/keptn-jenkins-library.git) installation `Jenkins > Manage Jenkins > Configure System > Global Pipeline Libraries`.
-![keptn](./assets/keptn-jenkins-library.PNG)
+![keptn](./assets/keptn-jenkins-library1.png)
 
 
 
@@ -24,12 +24,12 @@ Retrieve the Keptn credentials using the following
 ## Step 3: Store Keptn credentials in Jenkins
 
  Inside Jenkins go into `Manage Jenkins > Manage credentials ` and select the first element with the house icon.
-![keptn](./assets/jk1.png)
+![keptn](./assets/jenkins-store.png)
 Then click `Global credentials > Add credentials` and store the values from step 2.Repeat the process for each variable.
 
-![keptn](./assets/keptn-api.png)
-![keptn](./assets/keptn-bridge.png)
-![keptn](./assets/keptn-endpoint.png)
+![keptn](./assets/keptn-api1.png)
+![keptn](./assets/keptn-bridge1.png)
+![keptn](./assets/keptn-endpoint1.png)
 
 [Previous Step: Configure Keptn & Dynatrace integration](../02_Configure_Keptn_Dynatrace_Integration) :arrow_backward: :arrow_forward: [Next Step: Define Request Attributes](../04_Define_Request_Attributes)
 

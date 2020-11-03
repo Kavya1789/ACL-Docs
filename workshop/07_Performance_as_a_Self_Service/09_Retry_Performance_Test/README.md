@@ -5,7 +5,7 @@ In this lab you'll remove the slowdown in the carts service to have a solid vers
 ## Step 1: Revert the original Behavior of Carts
 
 1. In the directory of `carts\`, open the file: `.\carts\src\main\resources\application.properties`.
-1. Change the value of `delayInMillis` from `1000` to `0`.
+1. Change the value of `delayInMillis` from `800` to `0`.
 1. Commit/Push the changes to your GitHub Repository *carts*.
 
 ## Step 3: Build this new Version
