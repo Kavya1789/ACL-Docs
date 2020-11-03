@@ -15,7 +15,7 @@ For further information on how to capture request attributes, [please see this p
 1. Finally, click **Save**, click **Save**.
 
 Screenshot shows this rule definition.
-![request-attribute](../assets/request_attribute.png)
+![request-attribute](./assets/request_attribute.png)
 
 ## Step 2: Create Request Attribute for Load Script Name (LSN)
 1. Go to **Settings**, **Server-side monitoring**, and click on **Request attributes**.

@@ -1,6 +1,6 @@
 # Compare Builds in Dynatrace
 
-In this lab you'll learn how to leverage Dynatrace to identify the difference between two performance tests. Literally, a couple of clicks can tell you the reason why one build was slower compared to another one. 
+In this lab you'll learn how to leverage Dynatrace to identify the difference between three performance tests. Literally, a couple of clicks can tell you the reason why one build was slower compared to another one. 
 
 ## Step 1: Open Dynatrace from Jenkins Pipeline
 1. In the Performance Signature for a selected **failed build**, click on **open in Dynatrace**. (This opens the correct timeframe.)
@@ -28,6 +28,6 @@ In this lab you'll learn how to leverage Dynatrace to identify the difference be
 
 ---
 
-[Previous Step: Run Performance Tests](../05_Run_Performance_Tests) :arrow_backward: :arrow_forward: [Next Step: Retry Performance Test](../07_Retry_Performance_Test)
+[Previous Step: Analyze Results in Keptn Bridge](../08_Analyze_Results_in_Keptn_Bridge) :arrow_backward: 
 
 :arrow_up_small: [Back to overview](../)
