@@ -41,6 +41,6 @@ Screenshot shows this rule definition.
 
 ---
 
-[Previous Step: Write Load Test Script](../01_Write_Load_Test_Script) :arrow_backward: :arrow_forward: [Next Step: Define Performance Signature](../03_Define_Performance_Signature)
+[Previous Step: Configure Jenkins Library](../03_Configure_Jenkins_Library) :arrow_backward: :arrow_forward: [Next Step: Write Load Test script](../05_Write_Load_Test_Script)
 
 :arrow_up_small: [Back to overview](../)

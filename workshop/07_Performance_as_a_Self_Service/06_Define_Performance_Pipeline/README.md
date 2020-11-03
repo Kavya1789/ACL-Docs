@@ -90,34 +90,34 @@ Go to `carts\keptn` folder and review the files that define the SLO. You can fin
 
 ```
 ---
-spec_version: "0.1.1"
-comparison:
-  aggregate_function: "avg"
-  compare_with: "single_result"
-  include_result_with_score: "pass"
-filter:
-objectives:
-  - sli: "response_time_p95"
-    key_sli: false
-    pass:             # pass if (relative change <= 10% AND absolute value is < 800ms)
-      - criteria:
-          - "<=+10%"  # relative values require a prefixed sign (plus or minus)
-          - "<800"    # absolute values only require a logical operator
-    warning:          # if the response time is above 800ms and less or equal to 1200ms, the result should be a warning
-      - criteria:
-          - "<=1200"  # if the response time is above 1200ms, the result should be a failure
-    weight: 1         # weight default value is 1 and is used for calculating the score
-  - sli: "error_rate"
-    pass:
-      - criteria:
-          - "<=+5%"
-          - "<0.5"
-    warning:
-      - criteria:
-          - "<5"
-total_score:
-  pass: "90%"
-  warning: "75%"
+  spec_version: "0.1.1"
+  comparison:
+    aggregate_function: "avg"
+    compare_with: "single_result"
+    include_result_with_score: "pass"
+  filter:
+  objectives:
+    - sli: "response_time_p95"
+      key_sli: false
+      pass:             # pass if (relative change <= 10% AND absolute value is < 200ms)
+        - criteria:
+            - "<=+10%"  # relative values require a prefixed sign (plus or minus)
+            - "<200"    # absolute values only require a logical operator
+      warning:          # if the response time is above 200ms and less or equal to 500ms, the result should be a warning
+        - criteria:
+            - "<=500"  # if the response time is above 500ms, the result should be a failure
+      weight: 1         # weight default value is 1 and is used for calculating the score
+    - sli: "error_rate"
+      pass:
+        - criteria:
+            - "<=+5%"
+            - "<0.5"
+      warning:
+        - criteria:
+            - "<5"
+  total_score:
+    pass: "90%"
+    warning: "75%"
 ```
 
 Review the files used to define the SLI. You can find more information about Dynatrace SLI definitions using the Metrics V2 API [here](https://www.dynatrace.com/support/help/dynatrace-api/environment-api/metric-v2/)
@@ -134,10 +134,9 @@ indicators:
 
 ```
 
-![performance_signature_event](../assets/performance_signature_event.png)
 
 
-## Step 5: Validate the Performance Pipeline for Carts
+## Step 5: Validate the Performance Pipeline configuration for Carts
 1. Go to  **Jenkins** and click on the **sockshop** folder.
 1. Click on `carts.performance`.
 1. Click on **Configure**.
@@ -145,25 +144,10 @@ indicators:
 1. At *Build Configuration* check if *Script Path* is set to `Jenkinsfile.performance`.
 2. Finally, click **Save**.
 
-## Step 6: Set the keptn variables inside Jenkins
-
-Set the variables for the pipeline.
-
-```
-(bastion)$ export KEPTN_API_TOKEN=$(kubectl get secret keptn-api-token -n keptn -ojsonpath={.data.keptn-api-token} | base64 --decode)
-(bastion)$ echo $KEPTN_API_TOKEN
-(bastion)$ export KEPTN_BRIDGE=http://$(kubectl -n keptn get service api-gateway-nginx -ojsonpath='{.status.loadBalancer.ingress[0].ip}')/bridge
-(bastion)$ echo $KEPTN_BRIDGE
-(bastion)$ export KEPTN_ENDPOINT=http://$(kubectl -n keptn get service api-gateway-nginx -ojsonpath='{.status.loadBalancer.ingress[0].ip}')/api
-(bastion)$ echo $KEPTN_ENDPOINT
-```
-
-Then inside Jenkins go into Manage `Jenkins > Configure System > Global properties` a set the variables values.
-
-![keptn](./assets/keptn-variables.png)
+![keptn](./assets/jenkins.perf.png)
 
 ---
 
-[Previous Step: Define Performance Signature](../03_Define_Performance_Signature) :arrow_backward: :arrow_forward: [Next Step: Run Performance Tests](../05_Run_Performance_Tests)
+[Previous Step: Write Load Test Script](../05_Write_Load_Test_Script) :arrow_backward: :arrow_forward: [Next Step: Run Performance Tests](../07_Run_Performance_Tests)
 
 :arrow_up_small: [Back to overview](../)

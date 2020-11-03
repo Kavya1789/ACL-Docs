@@ -55,3 +55,5 @@ In this lab you'll learn how to create a container image and how to run a contai
     ```bash
     (bastion)$ docker run acl/hello-world:$USER-stable
     ```
+
+:arrow_up_small: [Back to overview](../README.md)

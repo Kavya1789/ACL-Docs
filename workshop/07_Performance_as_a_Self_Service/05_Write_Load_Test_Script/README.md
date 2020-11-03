@@ -67,6 +67,6 @@ Each request needs to be correctly tagged in order to identify them later on. Th
 
 ---
 
-:arrow_forward: [Next Step: Define Request Attributes in Dynatrace](../02_Define_Request_Attributes)
+[Previous Step: Define Request Attributes](../04_Define_Request_Attributes) :arrow_backward: :arrow_forward: [Next Step: Define Performance Pipeline](../06_Define_Performance_Pipeline)
 
 :arrow_up_small: [Back to overview](../)
