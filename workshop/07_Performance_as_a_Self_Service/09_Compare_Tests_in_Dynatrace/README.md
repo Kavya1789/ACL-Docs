@@ -1,30 +1,37 @@
-# Compare Builds in Dynatrace
+# Compare Tests in Dynatrace
 
 In this lab you'll learn how to leverage Dynatrace to identify the difference between three performance tests. Literally, a couple of clicks can tell you the reason why one build was slower compared to another one. 
 
-## Step 1: Open Dynatrace from Jenkins Pipeline
-1. In the Performance Signature for a selected **failed build**, click on **open in Dynatrace**. (This opens the correct timeframe.)
-1. Go to **Diagnostic tools** and click on **Top web requests**.
-1. (optional) Filter on a Management Zone.
+## Step 1: Locate the carts service 
+1. In Dynatrace go to Transactions and services
+1. Click on **Filtered by** and select `Tag:environment:dev`.
+1. Select the service ItemsController.
+1. You should be able to visualize the 3 deployment Events on the bottom right panel.
+![compare_builds](./assets/dt-events.png)
 
-## Step 2: Narrow down the Requests based on Request Attributes
-1. Click on **Add filter**.
-1. Create filter for: `Request attribute` > `LTN`.
-1. Click on **Apply**.
+## Step 2: Analyze the traffic
+1. Click on **Response time** on the request panel.
+1. On the top bar select the timeframe that allows you to visualize the 3 tests.
+1. Click on create analysis view.
+1. Set Aggregation 95th percentile
+1. Split by dimension `{RequestAttribute:LTN}`
+
+You should get something like this
+![compare_builds](./assets/aview.png)
 
 ## Step 3. Open Comparison View
-1. Select the timeframe of a *bad build*.
-1. Click on **...** and select **Comparison** as shown below:
-![compare_builds](../assets/compare_builds.png)
+1. Locate the 3 dot menu on the middle right of the screen and open `performance comparison`
+1. Use the time filers from above to select the last test timeframe for the left panel and the first test for the right panel. You should get something like this
+![compare_builds](./assets/compare.png)
 
-## Step 4. Compare Response Time Hotspots
-1. Select the timeframe of the *good build* by selecting *compare with*: `custom time frame`
-1. Click on **Compare response time hotspots**.
-![compare_hotspots](../assets/compare_hotspots.png)
-1. There you can see that the *Active wait time* increased.
-![compare_overview](../assets/compare_overview.png)
-1. Click on **View method hotspots** to identify the root cause.
-![method_hotspot](../assets/method_hotspot.png)
+1. Click on **Compare response time hotspots**
+![response-time](./assets/response.png)
+
+1. Click on **view method hotspots**
+![response-time](./assets/hotspot.png)
+
+1. You should be able to find the root cause of the delay by searching for the method, you can even visualize the function that slowsdown the method.
+![root-cause](./assets/rootcause.png)
 
 ---
 

@@ -21,14 +21,14 @@ During our first run the 2 SLO objectives were failing with values:
 - error_rate: 0%
 ```
 
-During our second run, the 1 of the 2 SLO hit the warning zone set between 400ms to 700ms for response_time_p95.
+During our second run, one 1 of the 2 SLO hit the warning zone set between 400ms to 700ms for the metric response_time_p95.
 
 ```yaml
 - response_time_p95: 636ms (this can be a different value during your run, we will see why by using Dynatrace during the next lab)
 - error_rate: 0%
 ```
 
-During our third run, the 1 of the 2 SLO hit the failure zone getting a result over 700ms on response_time_p95:
+During our third run, the 1 of the 2 SLO hit the failure zone after getting a result over 700ms for the metric response_time_p95.
 
 ```yaml
 - response_time_p95: 885ms (this can be a different value during your run, we will see why by using Dynatrace during the next lab)
