@@ -84,6 +84,6 @@ In this lab, we create an improved version of the front-end service. We'll chang
 
 ---
 
-[Previous Step: Deploy to Production](../3_Deploy_to_production) :arrow_backward: :arrow_forward: [Next Step: Deploy front-end v2](../5_Deploy_front-end_v2)
+[Previous Step: Deploy to Production](../2_Deploy_to_production) :arrow_backward: :arrow_forward: [Next Step: Deploy front-end v2](../4_Deploy_front-end_v2)
 
 :arrow_up_small: [Back to overview](../)

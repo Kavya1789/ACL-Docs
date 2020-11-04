@@ -25,6 +25,6 @@ Naturally, we dispatch a deployment event to all affected services. This might n
 1. Now, please wait a couple of minutes.
 
 ---
-[Previous Step: Configure Istio Components](../2_Configure_istio_components) :arrow_backward: :arrow_forward: [Next Step: Create front-end v2](../4_Create_front-end_v2)
+[Previous Step: Install Istio](../1_Install_Istio) :arrow_backward: :arrow_forward: [Next Step: Create front-end v2](../3_Create_front-end_v2)
 
 :arrow_up_small: [Back to overview](../)

@@ -53,6 +53,6 @@ In this lab, we'll promote the new version of the `front-end` service to product
     Up until now, the new version is deployed successfully to the `production` namespace, but no traffic is routed to the new version. We'll change that in the next step.
 ---
 
-[Previous Step: Create front-end v2](../4_Create_front-end_v2) :arrow_backward: :arrow_forward: [Next Step: Istio Traffic Routing](../6_Istio_Traffic_Routing)
+[Previous Step: Create front-end v2](../3_Create_front-end_v2) :arrow_backward: :arrow_forward: [Next Step: Istio Traffic Routing](../5_Istio_Traffic_Routing)
 
 :arrow_up_small: [Back to overview](../)
