@@ -6,10 +6,52 @@ In this lab you'll learn how to configure the Keptn library for Jenkins.
 
 1. Following the `everyhting as code` best practice, update the Jenkins deployment using Helm.
 
-1. Add the following code block to the jenkins values file located on the path `~/jenkins/helm/jenkins-values.yml` on the bastion **(make sure indentation is correct)**:
+1. Locate the code block that defines the dynatrace libs:
 
 ```yaml
+          globalLibraries:
+            libraries:
+            - name: "dynatrace"
+              retriever:
+                modernSCM:
+                  scm:
+                    git:
+                      id: "6813bac3-894e-434d-9abb-bd41eeb72f88"
+                      remote: "https://github.com/dynatrace-ace/dynatrace-jenkins-library.git"
+                      traits:
+                      - "gitBranchDiscovery"
+            ### add keptn library under this line
+```
 
+1. Add the following code block under the line commented out to the jenkins values file located on the path `~/jenkins/helm/jenkins-values.yml` on the bastion **(make sure indentation is correct)**:
+
+```yaml
+            - defaultVersion: "master"
+              name: "keptn-library"
+              retriever:
+                modernSCM:
+                  scm:
+                    git:
+                      remote: "https://github.com/keptn-sandbox/keptn-jenkins-library.git"
+                      traits:
+                      - "gitBranchDiscovery"
+```
+
+1. The Jenkins global libraries code block should look similar to this:
+
+```yaml
+          globalLibraries:
+            libraries:
+            - name: "dynatrace"
+              retriever:
+                modernSCM:
+                  scm:
+                    git:
+                      id: "6813bac3-894e-434d-9abb-bd41eeb72f88"
+                      remote: "https://github.com/dynatrace-ace/dynatrace-jenkins-library.git"
+                      traits:
+                      - "gitBranchDiscovery"
+            ### add keptn library under this line
             - defaultVersion: "master"
               name: "keptn-library"
               retriever:
