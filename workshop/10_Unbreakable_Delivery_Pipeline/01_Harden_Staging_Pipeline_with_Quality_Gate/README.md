@@ -139,13 +139,13 @@ In this lab you'll add an additional quality gate to your CI pipeline. In other 
     filter:
     objectives:
       - sli: "response_time_p95"
-        pass:             # pass if (relative change <= 10% AND absolute value is < 600ms)
+        pass:             # pass if (relative change <= 10% AND absolute value is < 200ms)
           - criteria:
               - "<=+10%"  # relative values require a prefixed sign (plus or minus)
-              - "<600"    # absolute values only require a logical operator
-        warning:          # if the response time is above 600ms and less or equal to 800ms, the result should be a warning
+              - "<200"    # absolute values only require a logical operator
+        warning:          # if the response time is above 200ms and less or equal to 500ms, the result should be a warning
           - criteria:
-              - "<=800"  # if the response time is above 800ms, the result should be a failure
+              - "<=500"  # if the response time is above 500ms, the result should be a failure
       - sli: "response_time_p95_front-end"
         pass:
           - criteria:
