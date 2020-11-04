@@ -99,13 +99,13 @@ Go to `carts\keptn` folder and review the files that define the SLO. You can fin
   objectives:
     - sli: "response_time_p95"
       key_sli: false
-      pass:             # pass if (relative change <= 10% AND absolute value is < 200ms)
+      pass:             # pass if (relative change <= 10% AND absolute value is < 400ms)
         - criteria:
             - "<=+10%"  # relative values require a prefixed sign (plus or minus)
-            - "<200"    # absolute values only require a logical operator
-      warning:          # if the response time is above 200ms and less or equal to 500ms, the result should be a warning
+            - "<400"    # absolute values only require a logical operator
+      warning:          # if the response time is above 400ms and less or equal to 700ms, the result should be a warning
         - criteria:
-            - "<=500"  # if the response time is above 500ms, the result should be a failure
+            - "<=700"  # if the response time is above 700ms, the result should be a failure
       weight: 1         # weight default value is 1 and is used for calculating the score
     - sli: "error_rate"
       pass:
@@ -133,8 +133,6 @@ indicators:
   response_time_p95:   "metricSelector=builtin:service.response.time:merge(0):percentile(95)&entitySelector=tag(environment:$STAGE),tag(app:$SERVICE),type(SERVICE)"
 
 ```
-
-
 
 ## Step 5: Validate the Performance Pipeline configuration for Carts
 1. Go to  **Jenkins** and click on the **sockshop** folder.
