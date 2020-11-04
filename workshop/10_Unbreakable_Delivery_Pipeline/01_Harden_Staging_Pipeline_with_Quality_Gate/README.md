@@ -2,7 +2,31 @@
 
 In this lab you'll add an additional quality gate to your CI pipeline. In other words, an end-to-end check will verify the functionality of the sockshop application in the staging environment.
 
-## Step 1: Add e2e Test to Staging Pipeline
+## Step 1: Import keptn libraries and set environment variables
+
+1. Uncomment the following lines of code in the Jenkinsfile of `k8s-deploy-staging`:
+
+    ```bash
+    @Library('keptn-library@3.3')
+    import sh.keptn.Keptn
+    def keptn = new sh.keptn.Keptn()
+
+    environment {
+      KEPTN_PROJECT = "acl-sockshop"
+      KEPTN_SERVICE = "${APP_NAME}"
+      KEPTN_STAGE = "staging"
+      KEPTN_MONITORING = "dynatrace"
+      KEPTN_SHIPYARD = "keptn/e2e-shipyard.yaml"
+      KEPTN_SLI = "keptn/e2e-sli.yaml"
+      KEPTN_SLO = "keptn/e2e-slo.yaml"
+      KEPTN_DT_CONF = "keptn/dynatrace.conf.yaml"
+      KEPTN_ENDPOINT = credentials('keptn-endpoint')
+      KEPTN_API_TOKEN = credentials('keptn-api-token')
+      KEPTN_BRIDGE = credentials('keptn-bridge')
+    }
+    ```
+
+## Step 2: Add e2e Test to Staging Pipeline
 
 1. Uncomment the following snippet in the Jenkins pipeline of `k8s-deploy-staging`.
 
@@ -88,7 +112,7 @@ In this lab you'll add an additional quality gate to your CI pipeline. In other 
     } // end stage
     ```
 
-## Step 2: Review SLI and SLO definitions
+## Step 3: Review SLI and SLO definitions
 
 1. Examine the file `keptn/e2e-sli.yaml` outlined below.
 
@@ -115,13 +139,13 @@ In this lab you'll add an additional quality gate to your CI pipeline. In other 
     filter:
     objectives:
       - sli: "response_time_p95"
-        pass:             # pass if (relative change <= 10% AND absolute value is < 600ms)
+        pass:             # pass if (relative change <= 10% AND absolute value is < 200ms)
           - criteria:
               - "<=+10%"  # relative values require a prefixed sign (plus or minus)
-              - "<600"    # absolute values only require a logical operator
-        warning:          # if the response time is above 600ms and less or equal to 800ms, the result should be a warning
+              - "<200"    # absolute values only require a logical operator
+        warning:          # if the response time is above 200ms and less or equal to 500ms, the result should be a warning
           - criteria:
-              - "<=800"  # if the response time is above 800ms, the result should be a failure
+              - "<=500"  # if the response time is above 500ms, the result should be a failure
       - sli: "response_time_p95_front-end"
         pass:
           - criteria:
@@ -155,7 +179,7 @@ In this lab you'll add an additional quality gate to your CI pipeline. In other 
 
 1. Note the additional sli/slo definition for the `front-end` service. The `staging` environment will be the target for our testing.
 
-## Step 3: Create a calculated service metric for the AddToCart request name
+## Step 4: Create a calculated service metric for the AddToCart request name
 
 In some cases it is not sufficient to look at the Service level for performance degradations. This is certainly so in large tests that hit many endpoints of a service. This could lead to the results being skewed as very fast responses on one service method could average out the (perhaps fewer in number) slow requests on the degraded service methods.
 
