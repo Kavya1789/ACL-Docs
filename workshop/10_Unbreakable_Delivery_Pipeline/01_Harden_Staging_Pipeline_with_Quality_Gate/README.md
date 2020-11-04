@@ -2,7 +2,31 @@
 
 In this lab you'll add an additional quality gate to your CI pipeline. In other words, an end-to-end check will verify the functionality of the sockshop application in the staging environment.
 
-## Step 1: Add e2e Test to Staging Pipeline
+## Step 1: Import keptn libraries and set emnvironment variables.
+
+1. Uncomment the following lines of code in the Jenkinsfile of `k8s-deploy-staging`:
+
+    ```bash
+    @Library('keptn-library@3.3')
+    import sh.keptn.Keptn
+    def keptn = new sh.keptn.Keptn()
+
+    environment {
+      KEPTN_PROJECT = "acl-sockshop"
+      KEPTN_SERVICE = "${APP_NAME}"
+      KEPTN_STAGE = "staging"
+      KEPTN_MONITORING = "dynatrace"
+      KEPTN_SHIPYARD = "keptn/e2e-shipyard.yaml"
+      KEPTN_SLI = "keptn/e2e-sli.yaml"
+      KEPTN_SLO = "keptn/e2e-slo.yaml"
+      KEPTN_DT_CONF = "keptn/dynatrace.conf.yaml"
+      KEPTN_ENDPOINT = credentials('keptn-endpoint')
+      KEPTN_API_TOKEN = credentials('keptn-api-token')
+      KEPTN_BRIDGE = credentials('keptn-bridge')
+    }
+    ```
+
+## Step 2: Add e2e Test to Staging Pipeline
 
 1. Uncomment the following snippet in the Jenkins pipeline of `k8s-deploy-staging`.
 
