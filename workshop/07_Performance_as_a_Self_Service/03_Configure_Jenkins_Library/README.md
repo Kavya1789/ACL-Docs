@@ -4,9 +4,14 @@ In this lab you'll learn how to configure the Keptn library for Jenkins.
 
 ## Step 1: Review Keptn library installation
 
-1. Following the `everyhting as code` best practice, update the Jenkins deployment using Helm.
+Following the `everything as code` best practice, we will update the Jenkins deployment using Helm.
 
-1. Locate the code block that defines the dynatrace libs:
+1. On the bastion find the `Jenkins-values.yml` file using the following
+```
+ (bastion)$ cd
+ (bastion)$ vi ~/jenkins/helm/jenkins-values.yml
+```
+1. Find the code block that defines the dynatrace libs:
 
 ```yaml
           globalLibraries:
@@ -23,7 +28,7 @@ In this lab you'll learn how to configure the Keptn library for Jenkins.
             ### add keptn library under this line
 ```
 
-1. Add the following code block under the line commented out to the jenkins values file located on the path `~/jenkins/helm/jenkins-values.yml` on the bastion **(make sure indentation is correct)**:
+1. Add the following code block under the line commented out and save the file **(make sure indentation is correct)**:
 
 ```yaml
             - defaultVersion: "master"
@@ -67,7 +72,7 @@ In this lab you'll learn how to configure the Keptn library for Jenkins.
 
 ```
 (bastion)$ cd
-(bastion)$ ./deployJenkins
+(bastion)$ helm upgrade jenkins --namespace cicd --values ~/jenkins/helm/jenkins-values-gen.yml stable/jenkins
 ```
 
 
