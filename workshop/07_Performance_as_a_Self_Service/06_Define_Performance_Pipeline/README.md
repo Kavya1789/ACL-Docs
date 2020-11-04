@@ -3,21 +3,24 @@
 In this lab you will build a Jenkins pipeline for implementing the *Performance as a Self-Service* approach for the carts service. The purpose of this pipeline is that a developer can manually trigger it to run a performance test against a service (in the dev environment) and to retrieve an immediate performance test results. This gives fast feedback if recent changes negatively impacted the service and whether this new version would pass the performance test in the CI pipeline.
 
 ## Step 1: Replace `Jenkinsfile.performance`
+
 1. In the `carts` repository, copy the content of `Jenkinsfile.complete.performance`.
 1. Replace the content of the `Jenkinsfile.performance` by pasting the content of `Jenkinsfile.complete.performance`.
 1. Save and commit `Jenkinsfile.performance`.
 
 ## Step 2: Review the Keptn library implementation
 
-Review the pipeline definition file located in the repository `carts/Jenkinsfile.performance`. 
+Review the pipeline definition file located in the repository `carts/Jenkinsfile.performance`.
 
-This will import the keptn-library inside the Jenkins pipeline and configure it based on parameters.
-```
+This will import the keptn groovy libraries inside the Jenkins pipeline and will set the parameter values that will used throughout the pipeline.
+
+```groovy
 @Library('keptn-library@3.3')
 import sh.keptn.Keptn
 def keptn = new sh.keptn.Keptn()
-``` 
 ```
+
+```groovy
   parameters {
     string(name: 'KEPTN_PROJECT', defaultValue: 'sockshop-perf', description: 'The name of the application.', trim: true)
     string(name: 'KEPTN_SERVICE', defaultValue: 'carts', description: 'The name of the service', trim: true)
@@ -28,7 +31,9 @@ def keptn = new sh.keptn.Keptn()
     string(name: 'JMETER_LOOPCOUNT', defaultValue: '500', description: 'Number of loops', trim: true)
   }
 ```
-This stage initializes keptn and creates a project in the keptn bridge. 
+
+This stage initializes keptn, it creates the required project, service, passes all the required files for the evaluation and configures monitoring for the service that is being deployed.
+
 ```
 stage('Keptn Init') {
       steps{
@@ -40,22 +45,24 @@ stage('Keptn Init') {
         }
       }
     } // end stage
-
 ```
-This marks the start of the keptn evaluation
 
-```
+This marks the start time of the keptn evaluation
+
+```groovy
 keptn.markEvaluationStartTime()
-
 ```
-and creates an evaluation event in Dynatrace and in the Keptn bridge.
 
-```
+The `sendStartEvaluationEvent` function posts an evaluation event to the keptn API which triggers a performance evaluation in keptn using dynatrace as the SLI provider.
+
+```groovy
    def keptnContext = keptn.sendStartEvaluationEvent starttime:"", endtime:""
           echo "Open Keptns Bridge: ${keptn_bridge}/trace/${keptnContext}"
 ```
-This part of the pipeline executes a jMeter script (as defined by the scriptName) in the context of a jmeter container. The script receives a list of parameters for its configuration. The condition after the *executeJMeter* function terminates the pipeline in case of a failed test.  
-```
+
+This part of the pipeline executes a JMeter script (as defined by the scriptName) in the context of a jmeter container. The script receives a list of parameters for its configuration. The condition after the *executeJMeter* function terminates the pipeline in case of a failed test.  
+
+```groovy
   container('jmeter') {
     script {
       def status = executeJMeter ( 
@@ -78,17 +85,24 @@ This part of the pipeline executes a jMeter script (as defined by the scriptName
   }
 ```
 
-Once the evaluation ends keptn-library will retrieve the results from the keptn api and approve/fail the jenkins pipeline.
-```
+Once the evaluation ends, the `keptn-library` will retrieve the results from the keptn api and approve/fail the jenkins pipeline.
+
+```groovy
  def result = keptn.waitForEvaluationDoneEvent setBuildResult:true, waitTime:'5'
  echo "${result}"
 ```
+
+The `setBuildResult` parameters will determine the exit result of current, is set to `false` the build will ignore the keptn evaluation result and if set to true the build result will be affected by the keptn evaluation result:
+
+- **pass score:** build set as successful
+- **warning score:** build set as unstable
+- **fail score:** build will fail
 
 ## Step 3: Review the SLO,SLI definitions
 
 Go to `carts\keptn` folder and review the files that define the SLO. You can find more information about SLO definitions [here](https://keptn.sh/docs/0.7.x/quality_gates/slo/)
 
-```
+```yaml
 ---
   spec_version: "0.1.1"
   comparison:
@@ -122,7 +136,7 @@ Go to `carts\keptn` folder and review the files that define the SLO. You can fin
 
 Review the files used to define the SLI. You can find more information about Dynatrace SLI definitions using the Metrics V2 API [here](https://www.dynatrace.com/support/help/dynatrace-api/environment-api/metric-v2/)
 
-```
+```yaml
 ---
 spec_version: '1.0'
 indicators:
@@ -131,10 +145,10 @@ indicators:
   response_time_p50:   "metricSelector=builtin:service.response.time:merge(0):percentile(50)&entitySelector=tag(environment:$STAGE),tag(app:$SERVICE),type(SERVICE)"
   response_time_p90:   "metricSelector=builtin:service.response.time:merge(0):percentile(90)&entitySelector=tag(environment:$STAGE),tag(app:$SERVICE),type(SERVICE)"
   response_time_p95:   "metricSelector=builtin:service.response.time:merge(0):percentile(95)&entitySelector=tag(environment:$STAGE),tag(app:$SERVICE),type(SERVICE)"
-
 ```
 
 ## Step 5: Validate the Performance Pipeline configuration for Carts
+
 1. Go to  **Jenkins** and click on the **sockshop** folder.
 1. Click on `carts.performance`.
 1. Click on **Configure**.
