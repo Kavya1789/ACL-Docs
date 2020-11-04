@@ -24,7 +24,8 @@ We will install [Keptn](https://keptn.sh/) on your GKE cluster and use the quali
 
 1. The installer will ask you for the following information:
     - Cluster name (should already be prefilled)
-![keptn](./assets/keptn-Install.png)
+
+    ![keptn](./assets/keptn-Install.png)
 
 1. Confirm your entry. The keptn installation process will commence.
 ![keptn_install](./assets/keptn_installation_logs.png)
