@@ -2,7 +2,7 @@
 
 In this lab you'll add an additional quality gate to your CI pipeline. In other words, an end-to-end check will verify the functionality of the sockshop application in the staging environment.
 
-## Step 1: Import keptn libraries and set emnvironment variables.
+## Step 1: Import keptn libraries and set environment variables
 
 1. Uncomment the following lines of code in the Jenkinsfile of `k8s-deploy-staging`:
 
