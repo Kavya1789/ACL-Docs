@@ -47,9 +47,10 @@ In this lab you'll measure the performance for the carts service 3 times. The fi
 1. Go to **Jenkins** and click on the **sockshop** folder.
 1. Click on **carts.performance** and select the **master** branch.  
 1. Click on **Build with parameters** to trigger the performance pipeline (leave the default values).
-2. Wait until the pipeline shows: *Failure*.
+2. Wait until the pipeline shows: *Failed*.
 
-
+You should be able to see something similar to this image
+![pipeline](./assets/pipelineResults.png)
 
 ---
 
