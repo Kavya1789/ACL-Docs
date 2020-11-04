@@ -7,7 +7,7 @@ We will install [Keptn](https://keptn.sh/) on your GKE cluster and use the quali
     (bastion)$ keptn
     ```
 1. You will be presented with a response like the following:
-![keptn](./assets/keptn-cli-response.png)
+![keptn](./assets/keptn-cli-response1.png)
 
 
 ## Step 2: Install the keptn runtime

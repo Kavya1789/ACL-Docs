@@ -12,6 +12,12 @@ In this lab you'll learn how to leverage Keptn bridge to analyze the differences
 
 As you can see, the right panel shows the history for the deployment event and the evaluation result compare with the previous builds for each SLI objective defined, here you can see the value for each metric and compare it's evolution over different build versions.
 
+During our first run the 2 SLO objectives were fulling with   values:
+```
+- response_time_p95: 258ms (this can be a different value during your run, we will see why during the next lab)
+- error_rate: 0%
+```
+
 
 ---
 
