@@ -3,7 +3,33 @@ In this lab you'll learn how to configure the Keptn library for Jenkins.
 ![keptn](./assets/evalpipeline_animated.gif)
 
 ## Step 1: Review Keptn library installation
-Go into Jenkins and review the [keptn library](https://github.com/keptn-sandbox/keptn-jenkins-library.git) installation `Jenkins > Manage Jenkins > Configure System > Global Pipeline Libraries`.
+
+1. Following the `everyhting as code` best practice, update the Jenkins deployment using Helm.
+
+1. Add the following code block to the jenkins values file located on the path `~/jenkins/helm/jenkins-values.yml` on the bastion **(make sure indentation is correct)**:
+
+```yaml
+
+            - defaultVersion: "master"
+              name: "keptn-library"
+              retriever:
+                modernSCM:
+                  scm:
+                    git:
+                      remote: "https://github.com/keptn-sandbox/keptn-jenkins-library.git"
+                      traits:
+                      - "gitBranchDiscovery"
+```
+
+1. Apply the configurations to Jenkins using helm:
+
+```
+(bastion)$ cd
+(bastion)$ ./deployJenkins
+```
+
+
+1. Go into Jenkins and review the [keptn library](https://github.com/keptn-sandbox/keptn-jenkins-library.git) installation `Jenkins > Manage Jenkins > Configure System > Global Pipeline Libraries`.
 ![keptn](./assets/keptn-jenkins-library1.png)
 
 
