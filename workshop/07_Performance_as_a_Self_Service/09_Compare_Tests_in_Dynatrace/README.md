@@ -28,6 +28,6 @@ In this lab you'll learn how to leverage Dynatrace to identify the difference be
 
 ---
 
-[Previous Step: Analyze Results in Keptn Bridge](../08_Analyze_Results_in_Keptn_Bridge) :arrow_backward: 
+[Previous Step: Analyze Results in Keptn Bridge](../08_Analyze_Results_in_Keptn_Bridge) :arrow_backward::arrow_forward: [Next Step: Retry Performance Test](../10_Retry_Performance_Test)
 
 :arrow_up_small: [Back to overview](../)

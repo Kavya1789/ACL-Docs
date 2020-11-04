@@ -23,6 +23,6 @@ In this lab you'll remove the slowdown in the carts service to have a solid vers
 
 ---
 
-[Previous Step: Compare Tests in Dynatrace](../06_Compare_Tests_in_Dynatrace) :arrow_backward: 
+[Previous Step: Compare Tests in Dynatrace](../09_Compare_Tests_in_Dynatrace) :arrow_backward:
 
 :arrow_up_small: [Back to overview](../)
