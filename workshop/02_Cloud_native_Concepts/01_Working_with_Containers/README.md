@@ -36,7 +36,7 @@ In this lab you'll learn how to create a container image and how to run a contai
     (bastion)$ docker images
     ```
 
-1. (optional) Set another tag.
+1. Set another tag.
 
     ```bash
     (bastion)$ docker tag acl/hello-world:$USER acl/hello-world:$USER-stable
