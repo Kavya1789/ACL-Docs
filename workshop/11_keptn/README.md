@@ -25,4 +25,4 @@ This lab is divided into the following sections
 
 * [Keptn GitHub Project](https://github.com/keptn/)
 
-[Production deployments]:(../08_Production_Deployments)
+[Production deployments]:../08_Production_Deployments
