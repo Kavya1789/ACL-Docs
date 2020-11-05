@@ -30,7 +30,7 @@ We will install [Keptn](https://keptn.sh/) on your GKE cluster and use the quali
 1. Confirm your entry. The keptn installation process will commence.
 ![keptn_install](./assets/keptn_installation_logs.png)
 
-## Step 3: Authenticate keptn API
+## Step 3: Authenticate keptn CLI
 
 1. Export the keptn api endpoint and API token as environment variables
 
