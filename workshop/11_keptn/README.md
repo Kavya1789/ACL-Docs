@@ -5,13 +5,13 @@ In this module you will learn about what the keptn framework is, how to install 
 This lab is divided into the following sections
 
 * [Preparation](00_Preparation)
-* [Install Keptn](01_Install_keptn)
-* [Configure Monitoring](02_Configure_Monitoring)
+* [Configure Istio](01_Configure_Istio)
+* [Configure Keptn](01_Configure_keptn)
 * [Onboard a Service](03_Onboard_Service)
 * [Quality Gates](04_Quality_Gates)
 * [Self Healing](05_Self-Healing)
 * [Runbook Automation](06_Runbook_Automation)
-
+<!--* [Configure Monitoring](02_Configure_Monitoring)-->
 ## Prerequisites
 
 * Check prerequisites module completed from the Monolithic to microservices lab.

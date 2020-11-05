@@ -31,6 +31,7 @@ Besides, the script has created a gateway resource for you so that the onboarded
 ![keptn](./assets/keptngateway.png)
 
 ---
-:arrow_backward: [Previous Step: Preparation](../00_Preparation):arrow_forward: [Next Step: Install Keptn](../02_Configure_keptn)
+
+[Previous Step: Preparation](../00_Preparation):arrow_backward::arrow_forward: [Next Step: Configure keptn](../02_Configure_keptn)
 
 :arrow_up_small: [Back to overview](../)

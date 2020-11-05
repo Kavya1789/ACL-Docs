@@ -11,6 +11,6 @@ In this lab you'll configure keptn to expand the quality gates capabilities and 
     ```
 
 ---
-:arrow_backward: [Previous Step: Preparation](../Configure_Istion):arrow_forward: [Next Step: Install Keptn](../03_Onboard_Service)
+[Previous Step: Configure Istio](../01_Configure_Istio):arrow_backward: :arrow_forward: [Next Step: Onboard service](../03_Onboard_Service)
 
 :arrow_up_small: [Back to overview](../)
