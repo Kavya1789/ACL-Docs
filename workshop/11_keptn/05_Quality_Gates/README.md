@@ -34,24 +34,14 @@ To have keptn use the Dynatrace SLI provider for the project sockshop, execute t
 
 In the previous lab ([Onboard Service](../03_Onboard_Service)), we set up a html file that shows all three environments alongside. Open this file. You should only see v1 in the Dev environment.
 
-## Step 3: Re-deploy Carts version 11.1
-
-We already deployed carts v11.1, however our staging and production builds fail because we had no SLO/SLI defined. Now that we've defined our SLOs and SLIs we can redeploy carts which should be promoted into staging and production.
-
-  ```bash
-  (bastion)$ keptn send event new-artifact --project=sockshop --service=carts --image=docker.io/keptnexamples/carts --tag=0.11.1
-  ```
-
-After sending the artifact your carts viewer should show v1 in all 3 environments.
-
-## Step 4: Deploy the slow carts version
+## Step 3: Deploy the slow carts version
 
 Use the Keptn CLI to deploy a version of the carts service, which contains an artificial slowdown of 1 second in each request.
 ```bash
 (bastion)$ keptn send event new-artifact --project=sockshop --service=carts --image=docker.io/keptnexamples/carts --tag=0.11.2
 ```
 
-## Step 5: Quality gate in action
+## Step 4: Quality gate in action
 
 After triggering the deployment of the carts service in version v0.11.2, the following status is expected:
 
@@ -69,7 +59,7 @@ To verify, check the Carts-Viewer.html file for the `staging` stage. The Keptnâ€
 * Production stage: The slow version is not promoted to the production namespace because of the active quality gate in place. Thus, still version v0.11.1 is expected to be in production.
 To verify, check the Carts-Viewer.html file for the `production` stage.
 
-## Step 6: Deploy a fixed version of carts
+## Step 5: Deploy a fixed version of carts
 
 Use the Keptn CLI to send a new version of the carts artifact, which does not contain any slowdown.
 ```bash
