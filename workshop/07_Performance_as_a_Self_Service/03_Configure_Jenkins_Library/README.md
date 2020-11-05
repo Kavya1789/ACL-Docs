@@ -6,86 +6,86 @@ In this lab you'll learn how to configure the Keptn library for Jenkins.
 
 Following the `everything as code` best practice, we will update the Jenkins deployment using Helm.
 
-1. On the bastion find the `Jenkins-values.yml` file using the following
-```
+1. On the bastion find the `jenkins-values.yml` file using the following
+
+```bash
  (bastion)$ cd
  (bastion)$ vi ~/jenkins/helm/jenkins-values.yml
 ```
+
 1. Find the code block that defines the dynatrace libs:
 
-```yaml
-          globalLibraries:
-            libraries:
-            - name: "dynatrace"
-              retriever:
-                modernSCM:
-                  scm:
-                    git:
-                      id: "6813bac3-894e-434d-9abb-bd41eeb72f88"
-                      remote: "https://github.com/dynatrace-ace/dynatrace-jenkins-library.git"
-                      traits:
-                      - "gitBranchDiscovery"
-            ### add keptn library under this line
-```
+    ```yaml
+            globalLibraries:
+                libraries:
+                - name: "dynatrace"
+                retriever:
+                    modernSCM:
+                    scm:
+                        git:
+                        id: "6813bac3-894e-434d-9abb-bd41eeb72f88"
+                        remote: "https://github.com/dynatrace-ace/dynatrace-jenkins-library.git"
+                        traits:
+                        - "gitBranchDiscovery"
+                ### add keptn library under this line
+    ```
 
 1. Add the following code block under the line commented out and save the file **(make sure indentation is correct)**:
 
-```yaml
-            - defaultVersion: "master"
-              name: "keptn-library"
-              retriever:
-                modernSCM:
-                  scm:
-                    git:
-                      remote: "https://github.com/keptn-sandbox/keptn-jenkins-library.git"
-                      traits:
-                      - "gitBranchDiscovery"
-```
+    ```yaml
+                - defaultVersion: "master"
+                name: "keptn-library"
+                retriever:
+                    modernSCM:
+                    scm:
+                        git:
+                        remote: "https://github.com/keptn-sandbox/keptn-jenkins-library.git"
+                        traits:
+                        - "gitBranchDiscovery"
+    ```
 
-1. The Jenkins global libraries code block should look similar to this:
+1. After adding the keptn libs, the Jenkins global libraries code block should look similar to this:
 
-```yaml
-          globalLibraries:
-            libraries:
-            - name: "dynatrace"
-              retriever:
-                modernSCM:
-                  scm:
-                    git:
-                      id: "6813bac3-894e-434d-9abb-bd41eeb72f88"
-                      remote: "https://github.com/dynatrace-ace/dynatrace-jenkins-library.git"
-                      traits:
-                      - "gitBranchDiscovery"
-            ### add keptn library under this line
-            - defaultVersion: "master"
-              name: "keptn-library"
-              retriever:
-                modernSCM:
-                  scm:
-                    git:
-                      remote: "https://github.com/keptn-sandbox/keptn-jenkins-library.git"
-                      traits:
-                      - "gitBranchDiscovery"
-```
+    ```yaml
+            globalLibraries:
+                libraries:
+                - name: "dynatrace"
+                retriever:
+                    modernSCM:
+                    scm:
+                        git:
+                        id: "6813bac3-894e-434d-9abb-bd41eeb72f88"
+                        remote: "https://github.com/dynatrace-ace/dynatrace-jenkins-library.git"
+                        traits:
+                        - "gitBranchDiscovery"
+                ### add keptn library under this line
+                - defaultVersion: "master"
+                name: "keptn-library"
+                retriever:
+                    modernSCM:
+                    scm:
+                        git:
+                        remote: "https://github.com/keptn-sandbox/keptn-jenkins-library.git"
+                        traits:
+                        - "gitBranchDiscovery"
+    ```
 
 1. Apply the configurations to Jenkins using helm:
 
-```
-(bastion)$ cd
-(bastion)$ helm upgrade jenkins --namespace cicd --values ~/jenkins/helm/jenkins-values-gen.yml stable/jenkins
-```
+    ```bash
+    (bastion)$ cd
+    (bastion)$ ./deployJenkins.sh
+    ```
 
 
 1. Go into Jenkins and review the [keptn library](https://github.com/keptn-sandbox/keptn-jenkins-library.git) installation `Jenkins > Manage Jenkins > Configure System > Global Pipeline Libraries`.
 ![keptn](./assets/keptn-jenkins-library1.png)
 
-
-
 ## Step 2: Get Keptn credentials
 
 Retrieve the Keptn credentials using the following
 
-```
+```bash
 (bastion)$ export KEPTN_API_TOKEN=$(kubectl get secret keptn-api-token -n keptn -ojsonpath={.data.keptn-api-token} | base64 --decode)
 (bastion)$ echo $KEPTN_API_TOKEN
 (bastion)$ export KEPTN_BRIDGE=http://$(kubectl -n keptn get service api-gateway-nginx -ojsonpath='{.status.loadBalancer.ingress[0].ip}')/bridge
