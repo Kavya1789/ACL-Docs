@@ -14,62 +14,62 @@ Following the `everything as code` best practice, we will update the Jenkins dep
     ```
 
     **Note:** To activate the line numbering on vim, set the number flag, :one: Press the `Esc` key to switch to command mode. :two: Press `:` (colon) and the cursor will move at the bottom left corner of the screen. Type `set number` or `set nu` and hit Enter.
-<br>
+
 1. Find the code block that defines the dynatrace libs (near or at line 483):
 
     ```yaml
-            globalLibraries:
-                libraries:
-                - name: "dynatrace"
-                retriever:
-                    modernSCM:
-                    scm:
-                        git:
-                        id: "6813bac3-894e-434d-9abb-bd41eeb72f88"
-                        remote: "https://github.com/dynatrace-ace/dynatrace-jenkins-library.git"
-                        traits:
-                        - "gitBranchDiscovery"
-                ### add keptn library under this line
+          globalLibraries:
+            libraries:
+            - name: "dynatrace"
+              retriever:
+                modernSCM:
+                  scm:
+                    git:
+                      id: "6813bac3-894e-434d-9abb-bd41eeb72f88"
+                      remote: "https://github.com/dynatrace-ace/dynatrace-jenkins-library.git"
+                      traits:
+                      - "gitBranchDiscovery"
+            ### add keptn library under this line
     ```
 
 1. Add the following code block under the line commented out and save the file **(make sure indentation is correct)**:
 
     ```yaml
-                - defaultVersion: "master"
-                name: "keptn-library"
-                retriever:
-                    modernSCM:
-                    scm:
-                        git:
-                        remote: "https://github.com/keptn-sandbox/keptn-jenkins-library.git"
-                        traits:
-                        - "gitBranchDiscovery"
+            - defaultVersion: "master"
+            name: "keptn-library"
+            retriever:
+                modernSCM:
+                scm:
+                    git:
+                    remote: "https://github.com/keptn-sandbox/keptn-jenkins-library.git"
+                    traits:
+                    - "gitBranchDiscovery"
     ```
 
 1. After adding the keptn libs, the Jenkins global libraries code block should look similar to this:
 
     ```yaml
-            globalLibraries:
-                libraries:
-                - name: "dynatrace"
-                retriever:
-                    modernSCM:
-                    scm:
-                        git:
-                        id: "6813bac3-894e-434d-9abb-bd41eeb72f88"
-                        remote: "https://github.com/dynatrace-ace/dynatrace-jenkins-library.git"
-                        traits:
-                        - "gitBranchDiscovery"
-                ### add keptn library under this line
-                - defaultVersion: "master"
-                name: "keptn-library"
-                retriever:
-                    modernSCM:
-                    scm:
-                        git:
-                        remote: "https://github.com/keptn-sandbox/keptn-jenkins-library.git"
-                        traits:
-                        - "gitBranchDiscovery"
+        globalLibraries:
+            libraries:
+            - name: "dynatrace"
+            retriever:
+                modernSCM:
+                scm:
+                    git:
+                    id: "6813bac3-894e-434d-9abb-bd41eeb72f88"
+                    remote: "https://github.com/dynatrace-ace/dynatrace-jenkins-library.git"
+                    traits:
+                    - "gitBranchDiscovery"
+            ### add keptn library under this line
+            - defaultVersion: "master"
+            name: "keptn-library"
+            retriever:
+                modernSCM:
+                scm:
+                    git:
+                    remote: "https://github.com/keptn-sandbox/keptn-jenkins-library.git"
+                    traits:
+                    - "gitBranchDiscovery"
     ```
 
 1. Apply the configurations to Jenkins using helm:
