@@ -12,7 +12,7 @@ This lab is divided into the following sections
 * [Quality Gates](05_Quality_Gates)
 * [Self Healing](06_Self_Healing)
 * [Runbook Automation](07_Runbook_Automation)
-<!--* [Configure Monitoring](02_Configure_Monitoring)-->
+
 ## Prerequisites
 
 * Check prerequisites module completed from the Monolithic to microservices lab.
