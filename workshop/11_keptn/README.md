@@ -5,12 +5,13 @@ In this module you will learn about what the keptn framework is, how to install 
 This lab is divided into the following sections
 
 * [Preparation](00_Preparation)
-* [Configure Keptn](01_Configure_keptn)
+* [Reinstall Keptn](01_Reinstall_keptn)
 * [Configure Istio](02_Configure_Istio)
-* [Onboard a Service](03_Onboard_Service)
-* [Quality Gates](04_Quality_Gates)
-* [Self Healing](05_Self-Healing)
-* [Runbook Automation](06_Runbook_Automation)
+* [Configure Keptn](03_Configure_Keptn)
+* [Onboard a Service](04_Onboard_Service)
+* [Quality Gates](05_Quality_Gates)
+* [Self Healing](06_Self_Healing)
+* [Runbook Automation](07_Runbook_Automation)
 <!--* [Configure Monitoring](02_Configure_Monitoring)-->
 ## Prerequisites
 

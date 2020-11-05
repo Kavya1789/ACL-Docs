@@ -4,6 +4,7 @@
 * GitHub user and email address and password
 
 ## Steps
+
 1. Create a new GitHub organization for your source code repositories. Go to https://github.com, login, and create a new organization by clicking the + icon in the upper right :one: corner and selecting "New Organization" :two:.
 
     ![](../assets/new-org.png)

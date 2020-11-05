@@ -61,7 +61,7 @@ Create a ServiceNow kubernetes secret to allow the ServiceNow keptn service to c
 1. Clone the GitHub repository with the necessary files for the tutorial:
 
     ```bash
-    (bastion):$ git clone --branch 0.2.0 https://github.com/keptn-contrib/servicenow-service.git --single-branch
+    (bastion):$ git clone --branch 0.2.1 https://github.com/keptn-contrib/servicenow-service.git --single-branch
     (bastion)$ cd servicenow-service
     ```
 
@@ -262,6 +262,10 @@ In case Dynatrace detected a problem before the ServiceNow secret was created in
 ```
 kubectl delete pod -l 'run=servicenow-service' -n keptn
 ```
+
+[Previous Step: Self-Healing](../07_Self_Healing) :arrow_backward:
+
+:arrow_up_small: [Back to overview](../)
 
 [Onboarding a Service]: ../03_Onboard_Service/README.md
 [Configure monitoring]: ../02_Configure_Monitoring/README.md

@@ -6,7 +6,7 @@ In this lab you'll onboard a service to keptn
 Execute the following command from your home directory to clone the keptn examples repo
 ```
 (bastion)$ cd
-(bastion)$ git clone --branch release-0.7.0 https://github.com/keptn/examples.git --single-branch
+(bastion)$ git clone --branch release-0.7.2 https://github.com/keptn/examples.git --single-branch
 (bastion)$ cd examples/onboarding-carts
 ```
 
@@ -108,6 +108,6 @@ On lines `15, 16 and 17`; replace the ip address placeholders (`xxx.xxx.xxx.xxx`
 
 ---
 
-[Previous Step: Configure Monitoring](../02_Configure_Monitoring) :arrow_backward: :arrow_forward: [Next Step: Quality Gates](../04_Quality_Gates)
+[Previous Step: Configure Keptn](../03_Configure_Keptn) :arrow_backward: :arrow_forward: [Next Step: Quality Gates](../05_Quality_Gates)
 
 :arrow_up_small: [Back to overview](../)

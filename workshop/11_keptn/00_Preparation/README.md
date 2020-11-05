@@ -25,6 +25,6 @@ Sign up for a `New York` or `Orlando` release instance on the [ServiceNow Develo
 
 ---
 
-:arrow_forward: [Next Step: Install Keptn](../01_Configure_Istio)
+:arrow_forward: [Next Step: Reinstall Keptn](../01_Reinstall_keptn)
 
 :arrow_up_small: [Back to overview](../)

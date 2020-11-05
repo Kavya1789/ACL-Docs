@@ -169,7 +169,7 @@ To simulate user traffic, we are going to execute the following script that will
 
 ---
 
-[Previous Step: Quality Gates](../04_Quality_Gates) :arrow_backward: :arrow_forward: [Next Step: Runbook Automation](../06_Runbook_Automation)
+[Previous Step: Quality Gates](../05_Quality_Gates) :arrow_backward: :arrow_forward: [Next Step: Runbook Automation](../07_Runbook_Automation)
 
 :arrow_up_small: [Back to overview](../)
 

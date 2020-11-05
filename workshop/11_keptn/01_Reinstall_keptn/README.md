@@ -4,13 +4,15 @@ In this lab you'll configure keptn to expand the quality gates capabilities and 
 
 ## Step 1: Configure Keptn for continuous delivery
 
-1. Redeploy keptn with the continuous delivery capabilities enabled
+1. Reinstall keptn with the continuous delivery capabilities enabled and to change how we expose keptn:
 
    ```bash
+    (bastion)$ keptn uninstall
     (bastion)$ keptn install --endpoint-service-type=ClusterIP --use-case=continuous-delivery
     ```
 
 ---
-[Previous Step: Configure Istio](../01_Configure_Istio):arrow_backward: :arrow_forward: [Next Step: Onboard service](../03_Onboard_Service)
+
+[Previous Step: Preparation](../00_Preparation):arrow_backward: :arrow_forward: [Next Step: Configure Istio](../02_Configure Istio)
 
 :arrow_up_small: [Back to overview](../)

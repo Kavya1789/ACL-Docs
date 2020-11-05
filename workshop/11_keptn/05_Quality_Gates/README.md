@@ -84,6 +84,6 @@ Pod Template:
 
 ---
 
-[Previous Step: Onboard a Service](../03_Onboard_Service) :arrow_backward: :arrow_forward: [Next Step: Self Healing](../05_Self-Healing)
+[Previous Step: Onboard a Service](../04_Onboard_Service) :arrow_backward: :arrow_forward: [Next Step: Self Healing](../06_Self_Healing)
 
 :arrow_up_small: [Back to overview](../)
