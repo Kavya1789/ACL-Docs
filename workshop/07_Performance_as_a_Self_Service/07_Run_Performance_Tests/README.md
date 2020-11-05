@@ -7,7 +7,7 @@ In this lab you'll measure the performance for the carts service 3 times. The fi
 1. Go to  **Jenkins** and click on **sockshop** folder.
 1. Click on **carts.performance**.
 1. Click on **Build with parameters** to trigger the performance pipeline. (leave the default values).
-1. Wait until the pipeline shows: *Success*.
+1. Wait until the pipeline build exists with a *Success* status.
 
 ## Step 2: Introduce a small slowdown in the Carts Service
 
@@ -19,15 +19,15 @@ In this lab you'll measure the performance for the carts service 3 times. The fi
 
 1. Go to **Jenkins** and click on the **sockshop** folder.
 1. Click on **carts** and select the **master** branch.
-2. Click on **Build Now** to trigger the pipeline. 
-3. Wait until the pipeline shows: *Success*.
+1. Click on **Build Now** to trigger the pipeline.
+1. Wait until the Jenkins build exists with a *Success* status.
 
 ## Step 4: Run Performance Test on new Version
 
 1. Go to **Jenkins** and click on the **sockshop** folder.
 1. Click on **carts.performance** and select the **master** branch.  
 1. Click on **Build with parameters** to trigger the performance pipeline (leave the default values).
-2. Wait until the pipeline shows: *Warning* (yellow color).
+1. Wait until the Jenkins build is set to *Unstable* (yellow color).
 
 ## Step 5: Introduce a larger slowdown in the Carts Service
 
@@ -39,17 +39,17 @@ In this lab you'll measure the performance for the carts service 3 times. The fi
 
 1. Go to **Jenkins** and click on the **sockshop** folder.
 1. Click on **carts** and select the **master** branch.
-2. Click on **Build Now** to trigger the pipeline. 
-3. Wait until the pipeline shows: *Success*.
+1. Click on **Build Now** to trigger the pipeline.
+1. Wait until the Jenkins build exists with a *Success* status.
 
 ## Step 7: Run Performance Test on new Version
 
 1. Go to **Jenkins** and click on the **sockshop** folder.
 1. Click on **carts.performance** and select the **master** branch.  
 1. Click on **Build with parameters** to trigger the performance pipeline (leave the default values).
-2. Wait until the pipeline shows: *Failed*.
+1. Wait until the Jenkins build **fails**
 
-You should be able to see something similar to this image
+You should be able to see something similar to this image:
 ![pipeline](./assets/pipelineResults.png)
 
 ---
