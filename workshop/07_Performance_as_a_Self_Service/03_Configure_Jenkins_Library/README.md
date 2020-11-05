@@ -8,12 +8,16 @@ Following the `everything as code` best practice, we will update the Jenkins dep
 
 1. On the bastion find the `jenkins-values.yml` file using the following
 
-```bash
- (bastion)$ cd
- (bastion)$ vi ~/jenkins/helm/jenkins-values.yml
-```
+    ```bash
+    (bastion)$ cd
+    (bastion)$ vi ~/jenkins/helm/jenkins-values.yml
+    ```
 
-1. Find the code block that defines the dynatrace libs:
+    **Note:** To activate the line numbering on vim, set the number flag:
+        - Press the `Esc` key to switch to command mode.
+        - Press `:` (colon) and the cursor will move at the bottom left corner of the screen. Type `set number` or `set nu` and hit Enter.
+<br>
+1. Find the code block that defines the dynatrace libs (near or at line 483):
 
     ```yaml
             globalLibraries:
