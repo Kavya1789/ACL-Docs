@@ -32,7 +32,7 @@ We will install [Keptn](https://keptn.sh/) on your GKE cluster and use the quali
 
 ## Step 3: Authenticate keptn API
 
-1. Create Keptn  Endpoint Token and API Environment Variables
+1. Export the keptn api endpoint and API token as environment variables
 
     ```bash
     (bastion)$ export KEPTN_ENDPOINT=http://$(kubectl -n keptn get service api-gateway-nginx -ojsonpath='{.status.loadBalancer.ingress[0].ip}')/api
