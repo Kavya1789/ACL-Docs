@@ -6,7 +6,7 @@ In this lab, we create an improved version of the front-end service. We'll chang
 
 1. Edit the file `public/topbar.html` in the master branch of the `front-end` repository and change the following lines:
 
-    ```
+    ```html
         <!-- *** TOPBAR ***
     _________________________________________________________ -->
     <div id="top">
@@ -21,7 +21,7 @@ In this lab, we create an improved version of the front-end service. We'll chang
 
 - Add a background color and insert V2 into the topbar as shown below:
 
-    ```
+    ```html
     <!-- *** TOPBAR ***
     _________________________________________________________ -->
     <div id="top" style="background-color:royalblue"> 
@@ -38,7 +38,7 @@ In this lab, we create an improved version of the front-end service. We'll chang
 
 1. Now it's time to commit our changes, first locally, and the pushing it to the remote repository.
 
-    ```
+    ```bash
     (bastion)$ git add .
     (bastion)$ git commit -m "new more colorful version of front-end service"
     (bastion)$ git push
@@ -63,7 +63,7 @@ In this lab, we create an improved version of the front-end service. We'll chang
 
 1. You can now see your changes in the `front-end` service that is deployed in `staging`. Get the public IP of the `front-end` load balancer in `staging` by listing all services in that namespace.
 
-    ```
+    ```bash
     (bastion)$ kubectl -n staging get services
     NAME           TYPE           CLUSTER-IP      EXTERNAL-IP    PORT(S)
     carts          ClusterIP      10.11.250.175   <none>         80/TCP

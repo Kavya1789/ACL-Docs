@@ -14,7 +14,7 @@ In this lab, we'll promote the new version of the `front-end` service to product
 
     This pipeline reads the version of the passed service in the `staging` namespace and deploys the artefact in that version to the `production` namespace in a deployment with the passed version number. After running that pipeline, there should be two deployments of `front-end`, one with v1 and one with v2.
 
-    ```
+    ```bash
     (bastion)$ kubectl -n production get deployment
     NAME           DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
     ...
@@ -25,7 +25,7 @@ In this lab, we'll promote the new version of the `front-end` service to product
 
     We've configured the `VirtualService` sockshop to only use v1 initially, so the application is not affected at all by the deployment of a new version in the `production` namespace. You can check the details of the deployments to see that each deployment uses a different artefact version, e.g. `0.4.2` and `0.4.3` in the example below.
 
-    ```
+    ```bash
     (bastion)$ kubectl -n production describe deployment front-end-v1
     ...
     Pod Template:

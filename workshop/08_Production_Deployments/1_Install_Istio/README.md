@@ -11,7 +11,7 @@ Istio's Pilot service is responsible for allow outgoing connections to for examp
 ## Step 1 - Auto Install Istio via script
 
 1. To install Istio execute the following on the bastion host
-    ```
+    ```bash
     (bastion)$ cd
     (bastion)$ istioctl install --set profile=demo
     ```
@@ -31,13 +31,13 @@ In this step, we'll enable Istio's automatic sidecar injection for one k8s names
 
 1. Enable Istio-Sidecar-injection, that will automatically inject Envoy container into application pods that are running in a namespace that is labeled with `istio-injection=enabled`
 
-    ```
+    ```bash
     (bastion)$ kubectl label namespace production istio-injection=enabled
     ```
 
     Ensure that the label `istio-injection` has only been applied to the production namespace.
 
-    ```
+    ```bash
     (bastion)$ kubectl get namespace -L istio-injection
     NAME           STATUS    AGE       ISTIO-INJECTION
     cicd           Active    10d
@@ -53,12 +53,12 @@ In this step, we'll enable Istio's automatic sidecar injection for one k8s names
 
 1. Istio requires a `Gateway`, that is a load balancer at the edge of the mesh receiving incoming HTTP and TCP connections.
 
-    ```
+    ```bash
     (bastion)$ kubectl apply -f repositories/k8s-deploy-production/istio/gateway.yml
     ```
 
     `gateway.yml`:
-    ```
+    ```yaml
     apiVersion: networking.istio.io/v1alpha3
     kind: Gateway
     metadata:
@@ -85,12 +85,12 @@ In this step, we'll enable Istio's automatic sidecar injection for one k8s names
 
 1. A `VirtualService` can be bound to a `Gateway` to control the forwarding of traffic.
 
-    ```
+    ```bash
     (bastion)$ kubectl apply -f repositories/k8s-deploy-production/istio/virtual_service.yml
     ```
 
     `virtual_service.yml`:
-    ```
+    ```yaml
     apiVersion: networking.istio.io/v1alpha3
     kind: VirtualService
     metadata:
@@ -109,12 +109,12 @@ In this step, we'll enable Istio's automatic sidecar injection for one k8s names
 
 1. At a later point in time, we'll have two different versions of the `front-end` service deployed. To prepare for this situation, we'll define `DestinationRule`s for both versions. A `DestinationRule` defines policies that apply to traffic intended for a service after a routing has occured.
 
-    ```
+    ```bash
     (bastion)$ kubectl apply -f repositories/k8s-deploy-production/istio/destination_rule.yml
     ```
 
     `destination_rule.yml`:
-    ```
+    ```yaml
     apiVersion: networking.istio.io/v1alpha3
     kind: DestinationRule
     metadata:

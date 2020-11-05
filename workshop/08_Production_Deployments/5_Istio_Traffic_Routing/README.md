@@ -5,7 +5,7 @@ In this lab, we'll configure traffic routing in Istio to redirect traffic based 
 ## Steps
 1. Right now, traffic to `front-end` is only routed to the version 1, because we've configured the `VirtualService` to do exactly that. The `subset: v1` entry in the configuration takes care of that.
 
-    ```
+    ```yaml
     apiVersion: networking.istio.io/v1alpha3
     kind: VirtualService
     metadata:
@@ -24,16 +24,16 @@ In this lab, we'll configure traffic routing in Istio to redirect traffic based 
 
 1. To see if the new version works properly we only want 50% of the traffic to be redirected to that version initially. To that end, we will apply the `virtual_service_canary.yml` in the `k8s-deploy-production` repository.
 
-    ```
-    (bastion)$ pwd
-    ~/repositories/k8s-deploy-production/istio
+    ```bash
+    (bastion)$ cd
+    (bastion)$ cd ~/repositories/k8s-deploy-production/istio
     (bastion)$ vi virtual_service_canary.yml
     ```
 
     The file should look like this:
 
     **!!! YOU MUST NOT DELETE THE COMMENTS #v1 AND #v2 - WE NEED THOSE LATER ON !!!**
-
+    ```yaml
         apiVersion: networking.istio.io/v1alpha3
         kind: VirtualService
         metadata:
@@ -59,18 +59,18 @@ In this lab, we'll configure traffic routing in Istio to redirect traffic based 
                 host: front-end.production.svc.cluster.local
                 subset: v2
             weight: 50 #v2
-
+    ```
 
     This configuration redirects 50% of all traffic hitting the sockshop `VirtualService` to version 2. Let's take a look how that looks in Dynatrace.
 
 1. To apply the configuration change, execute the following command:
-    ```
+    ```bash
     (bastion)$ kubectl apply -f virtual_service_canary.yml
     ```
     
 1. Run the `kubectl get svc istio-ingressgateway -n istio-system` command to get the *EXTERNAL-IP* of your *Gateway*.
 
-    ```
+    ```bash
     (bastion)$ kubectl get svc istio-ingressgateway -n istio-system
     NAME                   TYPE           CLUSTER-IP       EXTERNAL-IP     PORT(S)                                      AGE
     istio-ingressgateway   LoadBalancer   172.21.109.129   1**.2**.1**.1**  80:31380/TCP,443:31390/TCP,31400:31400/TCP   17h
@@ -98,7 +98,7 @@ In this lab, we'll configure traffic routing in Istio to redirect traffic based 
 
 1. (Optional) You can decide traffic routing also based on information that is included in the HTTP header. For example, you can present version 2 only to users that are logged in. See the following configuration that enables that.
 
-    ```
+    ```yaml
     apiVersion: networking.istio.io/v1alpha3
     kind: VirtualService
     metadata:
@@ -133,7 +133,7 @@ In this lab, we'll configure traffic routing in Istio to redirect traffic based 
 
 1. (Optional) Another option is to redirect traffic based on the user browser. See the following configuration that enables that.
 
-    ```
+    ```yaml
     apiVersion: networking.istio.io/v1alpha3
     kind: VirtualService
     metadata:
@@ -160,7 +160,7 @@ In this lab, we'll configure traffic routing in Istio to redirect traffic based 
 
     You can apply the configuration to see its effect.
 
-    ```
+    ```bash
     (bastion)$ kubectl apply -f virtual_service_v2_for_chrome.yml
     ```
 
