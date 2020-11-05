@@ -20,6 +20,6 @@ Besides, the script has created a gateway resource for you so that the onboarded
 
 ---
 
-[Previous Step: Reinstall keptn](../01_Reinstall_keptn):arrow_backward::arrow_forward: [Next Step: Onboard Service](../03_Onboard_Service)
+[Previous Step: Reinstall keptn](../01_Reinstall_keptn):arrow_backward::arrow_forward: [Next Step: Configure keptn](../03_Configure_Keptn)
 
 :arrow_up_small: [Back to overview](../)
