@@ -87,17 +87,18 @@ stages:
 Get the URL for your carts service with the following commands in the respective namespaces:
 
 ```bash
-(bastion)$ echo http://carts.sockshop-dev.$(kubectl get cm keptn-domain -n keptn -o=jsonpath='{.data.app_domain}')
+(bastion)$ echo http://carts.sockshop-dev.$(kubectl -n keptn get ingress api-keptn-ingress -ojsonpath='{.spec.rules[0].host}')
 
-(bastion)$ echo http://carts.sockshop-staging.$(kubectl get cm keptn-domain -n keptn -o=jsonpath='{.data.app_domain}')
+(bastion)$ echo http://carts.sockshop-staging.$(kubectl -n keptn get ingress api-keptn-ingress -ojsonpath='{.spec.rules[0].host}')
 
-(bastion)$ echo http://carts.sockshop-production.$(kubectl get cm keptn-domain -n keptn -o=jsonpath='{.data.app_domain}')
+(bastion)$ echo http://carts.sockshop-production.$(kubectl -n keptn get ingress api-keptn-ingress -ojsonpath='{.spec.rules[0].host}')
 ```
 
 Navigate to the URLs to inspect the carts service. In the development namespace, you should receive an output similar to this for Dev. Staging and Production will be empty for now.
 ![carts-dev](../assets/cartsDev.png)
 
 ## Step 7: Prepare the Carts Viewer
+
 Inside this workshop folder you will find a file called `Carts-Viewer.html`.
 
 Download this file to your local machine and open it with your favourite text editor.
