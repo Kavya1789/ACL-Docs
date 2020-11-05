@@ -3,13 +3,15 @@
 In this lab you'll learn how to leverage Dynatrace to identify the difference between three performance tests. Literally, a couple of clicks can tell you the reason why one build was slower compared to another one. 
 
 ## Step 1: Locate the carts service 
+
 1. In Dynatrace go to Transactions and services
 1. Click on **Filtered by** and select `Tag:environment:dev`.
 1. Select the service ItemsController.
-1. You should be able to visualize the 3 deployment Events on the bottom right panel.
+1. You should be able to visualize the 3 Custom info events on the bottom right panel of the service.
 ![compare_builds](./assets/dt-events.png)
 
 ## Step 2: Analyze the traffic
+
 1. Click on **Response time** on the request panel.
 1. On the top bar select the timeframe that allows you to visualize the 3 tests.
 1. Click on create analysis view.
@@ -20,6 +22,7 @@ You should get something like this
 ![compare_builds](./assets/aview.png)
 
 ## Step 3. Open Comparison View
+
 1. Locate the 3 dot menu on the middle right of the screen and open `performance comparison`
 1. Use the time filers from above to select the last test timeframe for the left panel and the first test for the right panel. You should get something like this
 ![compare_builds](./assets/compare.png)
