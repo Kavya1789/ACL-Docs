@@ -42,14 +42,6 @@ After installing and exposing Keptn, you can access the Keptn Bridge by using a 
     (bastion)$ ./installDynatraceServiceForKeptn.sh
     ```
 
-## Step 4: Install Dynatrace SLI service
-
-1. Install the dynatrace sli service by executing the following command:
-
-    ```bash
-    (bastion)$ kubectl apply -n keptn -f https://raw.githubusercontent.com/keptn-contrib/dynatrace-sli-service/0.7.0/deploy/service.yaml 
-    ```
-
 [Previous Step: Configure istio](../02_Configure_Istio):arrow_backward::arrow_forward: [Next Step: Onboard Service](../04_Onboard_Service)
 
 :arrow_up_small: [Back to overview](../)
