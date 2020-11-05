@@ -55,10 +55,11 @@ We will install [Keptn](https://keptn.sh/) on your GKE cluster and use the quali
 
 After installing and exposing Keptn, you can access the Keptn Bridge by using a browser and navigating to the Keptn endpoint.
 
-1. To get the keptn bridge url, run the following commmand:
+1. To get the keptn bridge url, run the following commmands:
 
     ```bash
-      (bastion)$ echo http://$(kubectl -n keptn get service api-gateway-nginx -ojsonpath='{.status.loadBalancer.ingress[0].ip}')/bridge
+      (bastion)$ export KEPTN_BRIDGE=http://$(kubectl -n keptn get service api-gateway-nginx -ojsonpath='{.status.loadBalancer.ingress[0].ip}')/bridge
+      (bastion)$ echo $KEPTN_BRIDGE
     ```
 
 1. The keptn bridge has basic authentication enabled by default and the default user is keptn with an automatically generated password.
