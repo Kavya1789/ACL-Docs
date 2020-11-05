@@ -1,4 +1,4 @@
-# Configure Keptn
+# Reinstall Keptn
 
 In this lab you'll configure keptn to expand the quality gates capabilities and use it for continuous delivery.
 
@@ -13,6 +13,6 @@ In this lab you'll configure keptn to expand the quality gates capabilities and 
 
 ---
 
-[Previous Step: Preparation](../00_Preparation):arrow_backward: :arrow_forward: [Next Step: Configure Istio](../02_Configure Istio)
+[Previous Step: Preparation](../00_Preparation):arrow_backward: :arrow_forward: [Next Step: Configure Istio](../02_Configure_Istio)
 
 :arrow_up_small: [Back to overview](../)
