@@ -19,7 +19,7 @@ We will install [Keptn](https://keptn.sh/) on your GKE cluster and use the quali
 1. To install the keptn runtime on your cluster, execute the following command:
 
     ```bash
-    (bastion)$ keptn install --endpoint-service-type=LoadBalancer
+    (bastion)$ keptn install --endpoint-service-type=ClusterIP
     ```
 
 1. The installer will ask you for the following information:
@@ -30,12 +30,21 @@ We will install [Keptn](https://keptn.sh/) on your GKE cluster and use the quali
 1. Confirm your entry. The keptn installation process will commence.
 ![keptn_install](./assets/keptn_installation_logs.png)
 
-## Step 3: Authenticate keptn CLI
+## Step 3: Expose keptn
+
+1. Run the following script to expose keptn using the existing nginx ingress controller:
+
+    ```bash
+    (bastion)$ cd
+    (bastion)$ ./exposeKeptn.sh
+    ```
+
+## Step 4: Authenticate keptn CLI
 
 1. Export the keptn api endpoint and API token as environment variables
 
     ```bash
-    (bastion)$ export KEPTN_ENDPOINT=http://$(kubectl -n keptn get service api-gateway-nginx -ojsonpath='{.status.loadBalancer.ingress[0].ip}')/api
+    (bastion)$ export KEPTN_ENDPOINT=http://keptn.$(kubectl -n ingress-nginx get svc ingress-nginx-controller -o jsonpath='{.status.loadBalancer.ingress[0].ip}').nip.io/api
     (bastion)$ export KEPTN_API_TOKEN=$(kubectl get secret keptn-api-token -n keptn -ojsonpath={.data.keptn-api-token} | base64 --decode)
     ```
 
@@ -51,14 +60,14 @@ We will install [Keptn](https://keptn.sh/) on your GKE cluster and use the quali
     (bastion)$ echo $KEPTN_ENDPOINT
     ```
 
-## Step 4: Authenticate keptn bridge
+## Step 5: Authenticate keptn bridge
 
 After installing and exposing Keptn, you can access the Keptn Bridge by using a browser and navigating to the Keptn endpoint.
 
 1. To get the keptn bridge url, run the following commmands:
 
     ```bash
-      (bastion)$ export KEPTN_BRIDGE=http://$(kubectl -n keptn get service api-gateway-nginx -ojsonpath='{.status.loadBalancer.ingress[0].ip}')/bridge
+      (bastion)$ export KEPTN_BRIDGE=http://keptn.$(kubectl -n ingress-nginx get svc ingress-nginx-controller  -o jsonpath='{.status.loadBalancer.ingress[0].ip}').nip.io/bridge
       (bastion)$ echo $KEPTN_BRIDGE
     ```
 
