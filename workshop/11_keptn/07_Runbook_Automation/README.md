@@ -232,7 +232,7 @@ Finally, take a look into the Keptn’s Bridge to see that an open problem has b
 - To view the logs of the servicenow-service pod, you can run the following commands:
 
 ```bash
-kubectl logs -l 'run=servicenow-service' -n keptn
+(bastion):$ kubectl logs -l 'run=servicenow-service' -c servicenow-service -n keptn
 ```
 
 ```
@@ -251,8 +251,8 @@ In case Dynatrace detected a problem before the ServiceNow secret was created in
 1. Create the secret.
 1. Restart the pod.
 
-```
-kubectl delete pod -l 'run=servicenow-service' -n keptn
+```bash
+(bastion):$ kubectl delete pod -l 'run=servicenow-service' -n keptn
 ```
 
 [Previous Step: Self-Healing](../06_Self_Healing) :arrow_backward:
