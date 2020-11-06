@@ -17,8 +17,6 @@ The OneAgent Operator has already been deployed in earlier stages of the lab. Ho
     - Configure a problem notification in Dynatrace for sending events to the keptn api
     - Set up the Dynatrace Service in keptn
 
-
-
 ## Step 2: Install Dynatrace SLI service
 In order to allow Keptn to use Dynatrace as an SLI provider we will need to install the [Dynatrace SLI Service](https://github.com/keptn-contrib/dynatrace-sli-service) for Keptn. This would allow us to write SLI definitions to obtain metrics from the Dynatrace API and use them as part of the evaluations.
 
