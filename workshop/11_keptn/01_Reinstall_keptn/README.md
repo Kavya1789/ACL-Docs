@@ -13,7 +13,7 @@ In this lab you'll configure keptn to expand the quality gates capabilities and 
 1. After running the install command, press `y` on your keyboard to confirm the cluster details and to override the current keptn installation. Expected output:
 
 ```bash
-Helm Chart used for Keptn installation: https://storage.googleapis.com/keptn-installer/keptn-0.7.2.tgz
+Helm Chart used for Keptn installation: https://storage.googleapis.com/keptn-installer/keptn-0.x.x.tgz
 
 Please confirm that the provided cluster information is correct:
 Cluster: <your_cluster_name>
