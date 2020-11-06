@@ -3,6 +3,7 @@
 In this lab you'll onboard a service to keptn
 
 ## Step 1: Clone examples repo
+
 Execute the following command from your home directory to clone the keptn examples repo
 ```
 (bastion)$ cd
@@ -11,6 +12,7 @@ Execute the following command from your home directory to clone the keptn exampl
 ```
 
 ## Step 2: Create a project
+
 The project will be created using the provided `shipyard` file:
 
 ```bash
@@ -39,26 +41,38 @@ stages:
 2. Go into your repository on github and verify the results (new branches created, helm charts created).
 
 ## Step 3: Onboard services to project
+
+
 1. Onboard the carts service
-    ```
+    ```bash
     (bastion)$ keptn onboard service carts --project=sockshop --chart=./carts
     ```
+
     ![keptn](../assets/keptnOnboardCarts.png)
+
 1. After onboarding the service, a couple of tests (i.e., functional tests and performance tests) need to be added as basis for quality gates in the different stages:
     * Functional tests
-        ```
+
+        ```bash
         (bastion)$ keptn add-resource --project=sockshop --service=carts --stage=dev --resource=jmeter/basiccheck.jmx --resourceUri=jmeter/basiccheck.jmx
         ```
+
     * Performance tests
-        ```
+
+        ```bash
         (bastion)$ keptn add-resource --project=sockshop --service=carts --stage=staging --resource=jmeter/load.jmx --resourceUri=jmeter/load.jmx
         ```
+
 1. Onboard the *carts-db* service using the onboard service command. The `--deployment-strategy` flag specifies that for this service a direct deployment strategy in all stages should be used regardless of the deployment strategy specified in the shipyard. Thus, the database is not blue/green deployed.
-    ```
+
+    ```bash
+
     (bastion)$ keptn onboard service carts-db --project=sockshop --chart=./carts-db --deployment-strategy=direct
     ```
+
 1. During the onboarding of the services, Keptn creates a namespace for each stage based on the pattern: `projectname-stagename`.
-    ```
+
+    ```bash
     (bastion)$ kubectl get namespaces
     NAME                  STATUS   AGE
     ...
@@ -66,24 +80,33 @@ stages:
     sockshop-production   Active   30s
     sockshop-staging      Active   1m
     ```
+
 ## Step 4: Send new artifacts and watch Keptn doing the deployment
+
 1. Deploy the carts-db service by executing the keptn send event new-artifact command:
-    ```
+
+    ```bash
     (bastion)$ keptn send event new-artifact --project=sockshop --service=carts-db --image=mongo --tag=4.2.2
     ```
+
 1. Deploy the carts service by specifying the built artifact, which is stored on DockerHub and tagged with version 0.11.1.
-    ```
+
+    ```bash
     (bastion)$ keptn send event new-artifact --project=sockshop --service=carts --image=docker.io/keptnexamples/carts --tag=0.11.1
     ```
+
 ## Step 5: Get keptn credentials and Bridge URL
-```
+
+```bash
 (bastion)$ cd
 (bastion)$ keptn configure bridge --output
 (bastion)$ echo http://$(kubectl -n keptn get ingress api-keptn-ingress -ojsonpath='{.spec.rules[0].host}')/bridge
-```    
+``` 
+
 ![bridge](../assets/keptnBridge.png)
 
 ## Step 6: View the carts service
+
 Get the URL for your carts service with the following commands in the respective namespaces:
 
 ```bash

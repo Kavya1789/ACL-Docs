@@ -19,12 +19,13 @@ Since we have chnged the way keptn is exposed from using a LoadBalancer service 
 
 ## Step 2: Authenticate keptn bridge
 
-After installing and exposing Keptn, you can access the Keptn Bridge by using a browser and navigating to the Keptn endpoint.
+After reinstalling and exposing Keptn, you can now access the keptn bridge using the istio ingress gateway.
 
 1. To get the keptn bridge url, run the following commmands:
 
     ```bash
-    (bastion)$ export KEPTN)_BRIDGE=http://$(kubectl -n keptn get ingress api-keptn-ingress -ojsonpath='{.spec.rules[0].host}')/bridge
+    (bastion)$ export KEPTN_BRIDGE=http://$(kubectl -n keptn get ingress api-keptn-ingress -ojsonpath='{.spec.rules[0].host}')/bridge
+    (bastion)$ echo $KEPTN_BRIDGE
     ```
 
 1. The keptn bridge has basic authentication enabled by default and the default user is keptn with an automatically generated password.
@@ -35,7 +36,15 @@ After installing and exposing Keptn, you can access the Keptn Bridge by using a 
 
 ## Step 3: Configure the Dynatrace Service for Keptn
 
-1. Execute the following command from your home directory to install the Dynatrace Service for Keptn
+Since the keptn api and bridge points have changed, the dynatrace secret containing that configuration needs to be recreated with the udpated values.
+
+1. Delete the existing dynatrace secret:
+
+    ```bash
+    (bastion)$ kubectl delete secret dynatrace -n keptn
+    ```
+
+1. Execute the following command from your home directory to install the Dynatrace Service for Keptn with the updated keptn values:
 
     ```bash
     (bastion)$ cd

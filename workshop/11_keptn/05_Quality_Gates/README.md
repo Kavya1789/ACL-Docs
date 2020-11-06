@@ -15,11 +15,16 @@ Navigate to the `examples/onboarding-carts` folder and upload the `slo-quality-g
 
 During the evaluation of a quality gate, an SLI provider is required to fetch the values for the indicators referenced in an SLO configuration.
 
-To install the `dynatrace-sli-service`, run the following:
+The `dynatrace-sli-service`, should already be installed on the keptn namespace, you can confirm this by running the following command:
 
 ```bash
-(bastion)$ kubectl apply -n keptn -f https://raw.githubusercontent.com/keptn-contrib/dynatrace-sli-service/0.7.0/deploy/service.yaml
+(bastion)$ kubectl get po -n keptn | grep "dynatrace-sli-service"
 ```
+
+```bash
+NAME                                     READY   STATUS    RESTARTS   AGE
+dynatrace-sli-service-755d5f994-pv7t5    2/2     Running   0          62m
+``` 
 
 Now configure the SLIs for Dynatrace as specified in `sli-config-dynatrace.yaml`:
 ```bash
