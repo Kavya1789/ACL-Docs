@@ -263,7 +263,7 @@ In case Dynatrace detected a problem before the ServiceNow secret was created in
 kubectl delete pod -l 'run=servicenow-service' -n keptn
 ```
 
-[Previous Step: Self-Healing](../07_Self_Healing) :arrow_backward:
+[Previous Step: Self-Healing](../06_Self_Healing) :arrow_backward:
 
 :arrow_up_small: [Back to overview](../)
 
