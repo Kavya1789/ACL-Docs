@@ -125,10 +125,10 @@ In this lab you'll add an additional quality gate to your CI pipeline. In other 
       response_time_p90:           "metricSelector=builtin:service.response.time:merge(0):percentile(90)&entitySelector=tag(environment:$STAGE),tag(app:$SERVICE),type(SERVICE)"
       response_time_p95:           "metricSelector=builtin:service.response.time:merge(0):percentile(95)&entitySelector=tag(environment:$STAGE),tag(app:$SERVICE),type(SERVICE)"
       response_time_p95_front-end: "metricSelector=builtin:service.response.time:merge(0):percentile(95)&entitySelector=tag(environment:$STAGE),tag(app:front-end),type(SERVICE)"
-      rt_addToCart:                "metricSelector=calc:service.itemscontroller.requestresponsetime:filter(eq(requestname,addToCart)):merge(0):percentile(95)&entitySelector=tag(environment:$STAGE),tag(app:carts),type(SERVICE)"
+      rt_addToCart:                "metricSelector=calc:service.itemscontroller.requestresponsetime:filter(eq(requestname,addToCart)):merge(0):percentile(95)&entitySelector=tag(environment:$STAGE),tag(app:$SERVICE),type(SERVICE)"
     ```
 
-1. Examine the file `keptn/e2e-slo.yaml` outlined below.
+1. Examine the file `keptn/carts-slo.yaml` outlined below.
 
     ```yaml
     ---
