@@ -65,17 +65,10 @@ Create a ServiceNow kubernetes secret to allow the ServiceNow keptn service to c
     (bastion)$ cd servicenow-service
     ```
 
-1. Subscribe the servicenow-service to keptn sh.keptn.event.problem.open events by applying the distributor manifest:
+1. Subscribe the servicenow-service to keptn sh.keptn.event.problem.open events by applying the distributor manifest and deploy the servicenow-service by running the following command:
 
     ```bash
-    (bastion):$ cd deploy
-    (bastion):$ kubectl apply -f distributor.yaml
-    ```
-
-1. Deploy the servicenow-service by running the following command:
-
-    ```bash
-    (bastion):$ kubectl apply -f service.yaml
+    (bastion):$ kubectl apply -f deploy/service.yaml -n keptn
     ```
 
 After running these commands, the servicenow-service and distributor are now deployed in your cluster. Execute the following commands to verify the deployment of the servicenow-service.
@@ -95,8 +88,7 @@ servicenow-service   ClusterIP   10.51.246.134   <none>        8080/TCP   18m
 
 ```bash
 NAME                                                              READY   STATUS    RESTARTS   AGE
-servicenow-service-5b67cc545c-c2452                               1/1     Running   0          17m
-servicenow-service-open-problem-distributor-554b5d778b-vbmgv      1/1     Running   0          17m
+servicenow-service-5b67cc545c-c2452                               2/2     Running   0          17m
 ```
 
 ## Create unleash credential and connection in ServiceNow
@@ -191,7 +183,7 @@ To simulate user traffic, we are going to execute the following script that will
 1. Start the according load generation program depending on your operating system (replace *OS with either linux, mac or win):
 
     ```bash
-    (bastion)$ ./loadgenerator-linux "http://carts.sockshop-production.$(kubectl get cm keptn-domain -n keptn -o=jsonpath='{.data.app_domain}')" 
+    (bastion)$ ./loadgenerator-linux http://carts.sockshop-production.$(kubectl -n keptn get ingress api-keptn-ingress -ojsonpath='{.spec.rules[0].host}')
     ```
 
 1. Now, go back to your Unleash server in your browser. In this tutorial, we are going to turn on the promotional campaign, which purpose is to add promotional gifts to about 30 % of the user interactions that put items in their shopping cart.
