@@ -37,7 +37,7 @@ To have keptn use the Dynatrace SLI provider for the project sockshop, execute t
 
 ## Step 2: Open the Carts Viewer Page
 
-In the previous lab ([Onboard Service](../03_Onboard_Service)), we set up a html file that shows all three environments alongside. Open this file. You should only see v1 in the Dev environment.
+In the previous lab ([Onboard Service](../04_Onboard_Service)), we set up a html file that shows all three environments alongside. Open this file. You should only see v1 in the Dev environment.
 
 ## Step 3: Deploy the slow carts version
 
