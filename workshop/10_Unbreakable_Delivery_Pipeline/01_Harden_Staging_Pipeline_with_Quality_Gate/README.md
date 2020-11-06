@@ -125,12 +125,13 @@ In this lab you'll add an additional quality gate to your CI pipeline. In other 
       response_time_p90:           "metricSelector=builtin:service.response.time:merge(0):percentile(90)&entitySelector=tag(environment:$STAGE),tag(app:$SERVICE),type(SERVICE)"
       response_time_p95:           "metricSelector=builtin:service.response.time:merge(0):percentile(95)&entitySelector=tag(environment:$STAGE),tag(app:$SERVICE),type(SERVICE)"
       response_time_p95_front-end: "metricSelector=builtin:service.response.time:merge(0):percentile(95)&entitySelector=tag(environment:$STAGE),tag(app:front-end),type(SERVICE)"
-      rt_addToCart:                "metricSelector=calc:service.itemscontroller.requestresponsetime:filter(eq(requestname,addToCart)):merge(0):percentile(95)&entitySelector=tag(environment:$STAGE),tag(app:$SERVICE),type(SERVICE)"
+      rt_addToCart:                "metricSelector=calc:service.itemscontroller.requestresponsetime:filter(eq(requestname,addToCart)):merge(0):percentile(95)&entitySelector=tag(environment:$STAGE),tag(app:carts),type(SERVICE)"
     ```
 
 1. Examine the file `keptn/e2e-slo.yaml` outlined below.
 
     ```yaml
+    ---
     spec_version: "0.1.1"
     comparison:
       aggregate_function: "avg"
@@ -139,13 +140,13 @@ In this lab you'll add an additional quality gate to your CI pipeline. In other 
     filter:
     objectives:
       - sli: "response_time_p95"
-        pass:             # pass if (relative change <= 10% AND absolute value is < 200ms)
+        pass:             # pass if (relative change <= 10% AND absolute value is < 400ms)
           - criteria:
               - "<=+10%"  # relative values require a prefixed sign (plus or minus)
-              - "<200"    # absolute values only require a logical operator
-        warning:          # if the response time is above 200ms and less or equal to 500ms, the result should be a warning
+              - "<400"    # absolute values only require a logical operator
+        warning:          # if the response time is above 400ms and less or equal to 700ms, the result should be a warning
           - criteria:
-              - "<=500"  # if the response time is above 500ms, the result should be a failure
+              - "<=700"  # if the response time is above 700ms, the result should be a failure
       - sli: "response_time_p95_front-end"
         pass:
           - criteria:
