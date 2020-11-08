@@ -7,7 +7,7 @@ In this lab we are going to deploy Ansible Tower, our chosen tool for automation
 * Access to the bastion host
 * Access to Jenkins
 
-## Configure Jenkins credentials
+## Step 1: Configure Jenkins credentials
 
 1. Starting with Jenkins 2.129+, the authentication mechanism for the Jenkins API now uses API tokens which allows a tool, in this case ansible tower, to impersonate a user without providing the actual password.
 
@@ -29,13 +29,13 @@ In this lab we are going to deploy Ansible Tower, our chosen tool for automation
     (bastion)$ ./updateJenkinsPassword.sh
 ```
 
-## Auto install or manual
+## Step 2: Auto install or manual
 In order to have this step go faster, an automatic installation option has been provided. This will take the information that was provided earlier and stored in the creds.json file and use that to install and configure Ansible Tower. For a more verbose experience, a manual installation option is also available.
 
 * [Auto Installation](#auto-installation)
 * [Manual Installation](./manual-installation.md)
 
-## Auto Installation
+### Auto Installation
 
 1. To install Ansible Tower automatically, it suffices to execute the following on the bastion host
 

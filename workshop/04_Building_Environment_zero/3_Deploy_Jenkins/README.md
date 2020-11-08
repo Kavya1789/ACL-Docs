@@ -20,14 +20,8 @@ Verify the deployments have been successful in each of the namespaces using the 
 (bastion)$ kubectl get deployment --all-namespaces | grep 'db\|rabbit'
 ```
 
-## Auto install or manual
-
-In order to have this step go faster, an automatic installation option has been provided. This will take the information that was provided earlier and stored in the creds.json file and use that to install and configure Jenkins. For a more verbose experience, a manual installation option is also available.
-
-* [Auto Installation](#auto-installation)
-* [Manual Installation](./jenkins-manual-installation.md)
-
 ## Auto Installation
+In order to have this step go faster, an automatic installation option has been provided. This will take the information that was provided earlier and stored in the creds.json file and use that to install and configure Jenkins. 
 
 1. To install Jenkins automatically, it suffices to execute the following on the bastion host
 
@@ -61,8 +55,8 @@ In order to have this step go faster, an automatic installation option has been 
 
     ![](../assets/jenkins-ui.png)
 
-1. For later use we configure Gitea credentials in Jenkins, so that selected pipelines can commit commit to Gitea with the provided credentials. Click "Credentials" :one: in the Jenkins UI, then the small black arrow next to "global", that shows when you put the mouse cursor over "global" :two:. Finally, click "Add credentials :three:.
-
+1. For later use we configure Gitea credentials in Jenkins, so that selected pipelines can commit commit to Gitea with the provided credentials. On the Jenkins UI home screen Click "Manage Jenkins" :one: and then click on "Manage Credentials" :two: under the Security settings, then the small black arrow next to "global" on the Jenkins credential provider, that shows when you put the mouse cursor over "global" :two:. Finally, click "Add credentials :three:.
+    ![](../assets/jenkins-ui-add-credentials-provider.png)
     ![](../assets/jenkins-ui-add-credentials.png)
 
 1. Provide your Gitea username :one:, your `Personal Access token` (get this from `creds.json` file on your bastion host, use the 'cat' or 'vi' command to view) :two:, and the ID :three:.
