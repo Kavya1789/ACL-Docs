@@ -44,7 +44,7 @@ We will install [Keptn](https://keptn.sh/) on your GKE cluster and use the quali
 1. Export the keptn api endpoint and API token as environment variables
 
     ```bash
-    (bastion)$ export KEPTN_ENDPOINT=http://keptn.$(kubectl -n ingress-nginx get svc ingress-nginx-controller -o jsonpath='{.status.loadBalancer.ingress[0].ip}').nip.io/api
+    (bastion)$ export KEPTN_ENDPOINT=http://$(kubectl -n keptn get ingress keptn -ojsonpath='{.spec.rules[0].host}')/api
     (bastion)$ export KEPTN_API_TOKEN=$(kubectl get secret keptn-api-token -n keptn -ojsonpath={.data.keptn-api-token} | base64 --decode)
     ```
 
@@ -67,7 +67,7 @@ After installing and exposing Keptn, you can access the Keptn Bridge by using a 
 1. To get the keptn bridge url, run the following commmands:
 
     ```bash
-      (bastion)$ export KEPTN_BRIDGE=http://keptn.$(kubectl -n ingress-nginx get svc ingress-nginx-controller  -o jsonpath='{.status.loadBalancer.ingress[0].ip}').nip.io/bridge
+      (bastion)$ export KEPTN_BRIDGE=http://$(kubectl -n keptn get ingress keptn -ojsonpath='{.spec.rules[0].host}')/bridge
       (bastion)$ echo $KEPTN_BRIDGE
     ```
 
