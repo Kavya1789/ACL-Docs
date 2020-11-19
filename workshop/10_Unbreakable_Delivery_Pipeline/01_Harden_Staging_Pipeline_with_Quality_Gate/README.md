@@ -6,7 +6,7 @@ In this lab you'll add an additional quality gate to your CI pipeline. In other 
 
 1. Uncomment the following lines of code in the Jenkinsfile of `k8s-deploy-staging`:
 
-    ```bash
+    ```groovy
     @Library('keptn-library@3.3')
     import sh.keptn.Keptn
     def keptn = new sh.keptn.Keptn()
@@ -18,7 +18,7 @@ In this lab you'll add an additional quality gate to your CI pipeline. In other 
       KEPTN_MONITORING = "dynatrace"
       KEPTN_SHIPYARD = "keptn/e2e-shipyard.yaml"
       KEPTN_SLI = "keptn/e2e-sli.yaml"
-      KEPTN_SLO = "keptn/e2e-slo.yaml"
+      KEPTN_SLO = "keptn/${APP_NAME}-slo.yaml"
       KEPTN_DT_CONF = "keptn/dynatrace.conf.yaml"
       KEPTN_ENDPOINT = credentials('keptn-endpoint')
       KEPTN_API_TOKEN = credentials('keptn-api-token')
@@ -30,7 +30,7 @@ In this lab you'll add an additional quality gate to your CI pipeline. In other 
 
 1. Uncomment the following snippet in the Jenkins pipeline of `k8s-deploy-staging`.
 
-    ```bash
+    ```groovy
     stage('Staging Warm Up') {
       steps {
         echo "Waiting for the service to start..."
