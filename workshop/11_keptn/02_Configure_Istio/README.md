@@ -21,9 +21,12 @@ We will be using Istio for traffic routing and as an ingress to our cluster. To 
 
 ### What is actually created
 
-With this script, you have created an Ingress based on the following manifest.
+With this script, you have created an Ingress based on the following manifest:
+
 ![keptn](./assets/keptningress.png)
-Besides, the script has created a gateway resource for you so that the onboarded services are also available publicly.
+
+Besides, the script has created a gateway resource for you so that the onboarded services are also available publicly:
+
 ![keptn](./assets/keptngateway.png)
 
 ---
