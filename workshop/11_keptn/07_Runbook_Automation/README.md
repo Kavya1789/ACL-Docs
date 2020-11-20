@@ -58,20 +58,13 @@ Create a ServiceNow kubernetes secret to allow the ServiceNow keptn service to c
 
 ## Install the ServiceNow service on the keptn namespace
 
-1. Clone the GitHub repository with the necessary files for the tutorial:
-
-    ```bash
-    (bastion):$ git clone --branch 0.2.1 https://github.com/keptn-contrib/servicenow-service.git --single-branch
-    (bastion)$ cd servicenow-service
-    ```
-
 1. Subscribe the servicenow-service to keptn sh.keptn.event.problem.open events by applying the distributor manifest and deploy the servicenow-service by running the following command:
 
     ```bash
-    (bastion):$ kubectl apply -f deploy/service.yaml -n keptn
+    (bastion):$ kubectl -n keptn apply -f https://github.com/keptn-contrib/servicenow-service/blob/0.2.1/deploy/service.yaml
     ```
 
-After running these commands, the servicenow-service and distributor are now deployed in your cluster. Execute the following commands to verify the deployment of the servicenow-service.
+After running this command, the servicenow-service and distributor are now deployed in your cluster. Execute the following commands to verify the deployment of the servicenow-service.
 
 ```bash
 (bastion):$ kubectl get svc servicenow-service -n keptn

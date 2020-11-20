@@ -36,40 +36,40 @@ Following the `everything as code` best practice, we will update the Jenkins dep
 
     ```yaml
             - defaultVersion: "master"
-            name: "keptn-library"
-            retriever:
+              name: "keptn-library"
+              retriever:
                 modernSCM:
-                scm:
+                  scm:
                     git:
-                    remote: "https://github.com/keptn-sandbox/keptn-jenkins-library.git"
-                    traits:
-                    - "gitBranchDiscovery"
+                      remote: "https://github.com/keptn-sandbox/keptn-jenkins-library.git"
+                      traits:
+                      - "gitBranchDiscovery"
     ```
 
 1. After adding the keptn libs, the Jenkins global libraries code block should look similar to this:
 
     ```yaml
-        globalLibraries:
+          globalLibraries:
             libraries:
             - name: "dynatrace"
-            retriever:
+              retriever:
                 modernSCM:
-                scm:
+                  scm:
                     git:
-                    id: "6813bac3-894e-434d-9abb-bd41eeb72f88"
-                    remote: "https://github.com/dynatrace-ace/dynatrace-jenkins-library.git"
-                    traits:
-                    - "gitBranchDiscovery"
+                      id: "6813bac3-894e-434d-9abb-bd41eeb72f88"
+                      remote: "https://github.com/dynatrace-ace/dynatrace-jenkins-library.git"
+                      traits:
+                      - "gitBranchDiscovery"
             ### add keptn library under this line
             - defaultVersion: "master"
-            name: "keptn-library"
-            retriever:
+              name: "keptn-library"
+              retriever:
                 modernSCM:
-                scm:
+                  scm:
                     git:
-                    remote: "https://github.com/keptn-sandbox/keptn-jenkins-library.git"
-                    traits:
-                    - "gitBranchDiscovery"
+                      remote: "https://github.com/keptn-sandbox/keptn-jenkins-library.git"
+                      traits:
+                      - "gitBranchDiscovery"
     ```
 
 1. Apply the configurations to Jenkins using helm:

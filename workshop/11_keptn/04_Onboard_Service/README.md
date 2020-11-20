@@ -31,14 +31,14 @@ stages:
 1. Execute the following commands to set environment variables and creating the project.
 
     ```bash
-    (bastion)$ export GIT_USER={YOUR GITHUB USER ID}
-    (bastion)$ export GIT_TOKEN={YOUR GITHUB PERSONAL ACCESS TOKEN}
-    (bastion)$ export GIT_REMOTE_URL=https://github.com/{YOUR GITHUB ORG}/sockshop.git
+    (bastion)$ export GIT_USER=dynatrace
+    (bastion)$ export GIT_TOKEN=$(cat ~/creds.json | jq -r '.githubPersonalAccessToken')
+    (bastion)$ export GIT_REMOTE_URL=http://$(kubectl -n cicd get ingress gitea-gitea -ojsonpath='{.spec.rules[0].host}')/dynatrace/sockshop.git
     (bastion)$ keptn create project sockshop --shipyard=./shipyard.yaml --git-user=$GIT_USER --git-token=$GIT_TOKEN --git-remote-url=$GIT_REMOTE_URL
     ```
 
     ![keptn](../assets/keptnCreateProject.png)
-2. Go into your repository on github and verify the results (new branches created, helm charts created).
+2. Go into your gitea repository and verify the results (new branches created, helm charts created).
 
 ## Step 3: Onboard services to project
 

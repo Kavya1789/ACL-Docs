@@ -94,11 +94,6 @@ Now, everything is set up in the Unleash server. For Keptn to be able to connect
     (bastion)$ kubectl -n keptn create secret generic unleash --from-literal="UNLEASH_SERVER_URL=http://unleash.unleash-dev/api" --from-literal="UNLEASH_USER=keptn" --from-literal="UNLEASH_TOKEN=keptn"
     ```
 
-1. Keptn has to be aware of the new secret to connect to the Unleash server and to set the feature toggles. Therefore, the remediation-service must be restarted:
-
-    ```bash
-    (bastion)$ kubectl delete pod -l=run=remediation-service -n keptn
-    ```
 1. Install the Unleash action provider which is responsible for acting upon an alert, thus it is the part that will actually resolve issues by changing the stage of the feature flags.
     ```bash
     (bastion)$ kubectl apply -f https://raw.githubusercontent.com/keptn-contrib/unleash-service/release-0.1.0/deploy/service.yaml
