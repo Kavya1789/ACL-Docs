@@ -39,10 +39,12 @@ In order to have this step go faster, an automatic installation option has been 
 
 ## Confirm Jenkins configuration
 
-1. Find the IP for Jenkins by retrieving the `jenkins` service which was deployed:
+1. Find the ingress url for Jenkins by retrieving the `jenkins` ingress which was deployed:
 
 ```bash
-(bastion)$ kubectl -n cicd get svc jenkins
+(bastion)$ kubectl get Ingress jenkins -n cicd
+NAME      HOSTS                         ADDRESS        PORTS     AGE
+jenkins   jenkins.xx.xx.xx.xx.nip.io   xx.xx.xx.xx   80, 443   60m
 ```
 
 1. Open the `Jenkins URL` in your browser and login with the following credentials:
@@ -59,7 +61,7 @@ In order to have this step go faster, an automatic installation option has been 
     ![](../assets/jenkins-ui-add-credentials-provider.png)
     ![](../assets/jenkins-ui-add-credentials.png)
 
-1. Provide your Gitea username :one:, your `Personal Access token` (get this from `creds.json` file on your bastion host, use the 'cat' or 'vi' command to view) :two:, and the ID :three:.
+1. Provide your Gitea username (by default `dynatrace` ) :one:, your `Personal Access token` (get this from `creds.json` file on your bastion host, use the 'cat' or 'vi' command to view) :two:, and the ID :three:.
     **It's important to use this ID `git-credentials-acm`, as the credentials are referenced by this ID by selected builds.** To save the credentials click OK :four:.
 
 ---

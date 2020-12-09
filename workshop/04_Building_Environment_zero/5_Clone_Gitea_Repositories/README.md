@@ -2,6 +2,8 @@
 
 In this lab, you will clone the Gitea repositories we've forked in lab 2 to your local environment. Then, you can edit those files in Visual Studio Code or any other editor of your choice.
 
+**Note:** This step is optional. During the lab we will be making all of the changes required in the gitea UI.
+
 ## Prerequisites
 * Gitea organization
 * Gitea user and password
