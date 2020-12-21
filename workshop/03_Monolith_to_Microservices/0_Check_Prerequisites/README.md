@@ -2,7 +2,7 @@
 
 ## Data needed
 
-* Credentials for bastion host (Will be provided via Etherpad)
+* Access to the bastion host.
 * Access to the Dynatrace Tenant provided for the lab.
 Note: Dynatrace Tenant should preferably be on Sprint or Production environments as certain functionality like tagging and custom properties can be unstable/limited on DEV Tenants.
 

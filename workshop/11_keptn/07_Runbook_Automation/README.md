@@ -25,17 +25,6 @@ If the [Self-healing] lab was successfully completed, all the remediation files 
     (bastion):$ keptn add-resource --project=sockshop --service=carts --stage=production --resource=disable_keptn_remediation.yaml --resourceUri=remediation.yaml
     ```
 
-## Activate required ServiceNow plugins
-
-For specific instructions visit [Activate a plugin on a personal developer instance].
-
-The following plugins must be enabled prior to this lab:
-
-- **Event Management plugin** (com.glideapp.itom.snac)
-![event-management-plugin](../assets/event-management-plugin.png)
-- **ServiceNow IntegrationHub** Installer (com.glide.hub.integrations)
-![integration-hub-plugin](../assets/integration-hub-plugin.png)
-
 ## Create ServiceNow secret
 
 Create a ServiceNow kubernetes secret to allow the ServiceNow keptn service to create events and update alerts in ServiceNow and trigger subflows.
@@ -61,7 +50,7 @@ Create a ServiceNow kubernetes secret to allow the ServiceNow keptn service to c
 1. Subscribe the servicenow-service to keptn sh.keptn.event.problem.open events by applying the distributor manifest and deploy the servicenow-service by running the following command:
 
     ```bash
-    (bastion):$ kubectl -n keptn apply -f https://github.com/keptn-contrib/servicenow-service/blob/0.2.1/deploy/service.yaml
+    (bastion):$ kubectl -n keptn apply -f https://raw.githubusercontent.com/keptn-contrib/servicenow-service/release-0.2.1/deploy/service.yaml
     ```
 
 After running this command, the servicenow-service and distributor are now deployed in your cluster. Execute the following commands to verify the deployment of the servicenow-service.
@@ -256,7 +245,7 @@ In case Dynatrace detected a problem before the ServiceNow secret was created in
 [Configure monitoring]: ../02_Configure_Monitoring/README.md
 [Self Healing]: ../05_Onboard_Service/README.md
 [Activate a plugin on a personal developer instance
-]: https://docs.servicenow.com/bundle/orlando-platform-administration/page/administer/plugins/task/activate-plugin-pdi.html
+]: https://docs.servicenow.com/bundle/paris-platform-administration/page/administer/plugins/task/activate-plugin-pdi.html
 [Self-healing]: ../05_Self-Healing/README.md
 [keptn-remediation-1.1.xml]: ../assets/keptn-remediation-1.1.xml
 [Configure Monitoring]: ../02_Configure_Monitoring/README.md
