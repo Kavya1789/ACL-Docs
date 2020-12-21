@@ -14,8 +14,22 @@ Once your account has been created and you have signed in to the developer porta
 
 Sign up for a `Orlando` or `Paris` release instance on the [ServiceNow Developer Portal](https://developer.servicenow.com/)
 
+## Step 3: Activate required ServiceNow plugins
+
+For specific instructions visit [Activate a plugin on a personal developer instance].
+
+The following plugins must be enabled prior to this lab:
+
+- **Event Management plugin** (com.glideapp.itom.snac)
+![event-management-plugin](../assets/event-management-plugin.png)
+- **ServiceNow IntegrationHub** Installer (com.glide.hub.integrations)
+![integration-hub-plugin](../assets/integration-hub-plugin.png)
+
 ---
 
 :arrow_forward: [Next Step: Reinstall Keptn](../01_Reinstall_keptn)
 
 :arrow_up_small: [Back to overview](../)
+
+[Activate a plugin on a personal developer instance
+]: https://docs.servicenow.com/bundle/paris-platform-administration/page/administer/plugins/task/activate-plugin-pdi.html
