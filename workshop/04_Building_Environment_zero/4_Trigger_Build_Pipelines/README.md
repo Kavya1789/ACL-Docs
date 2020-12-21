@@ -1,13 +1,16 @@
 # Trigger Build Pipelines
 
-In this lab, we'll confirm that the build pipelines to populate the `dev` namespace with all artifacts completed successfully.
-
+In this lab, we'll deploy the sockshop application to the `dev` namespace.
 
 ## Steps
 
 1. Navigate to the *Sockshop folder* in the Jenkins home page.
 
     ![](../assets/jenkins-ui-enter-sockshop-folder.png)
+
+1. Click on the scan button next to the multibranch pipeline to trigger the deployment:
+
+    ![](../assets/jenkins-trigger-pipelines.png)
 
 1. If all builds completed successfully, you should see something like this:
 
