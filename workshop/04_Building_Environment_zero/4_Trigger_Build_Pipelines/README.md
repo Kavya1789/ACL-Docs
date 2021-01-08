@@ -8,9 +8,13 @@ In this lab, we'll deploy the sockshop application to the `dev` namespace.
 
     ![](../assets/jenkins-ui-enter-sockshop-folder.png)
 
-1. Click on the scan button next to the multibranch pipeline to trigger the deployment:
+1. Click on the sort by `last build status` button to sort the pipelines by their type and then click on each of the `multi-branch` projects separately to trigger the builds one by one:
 
     ![](../assets/jenkins-trigger-pipelines.png)
+
+1. Trigger the build by clicking on the `Schedule a Build` button on the right side of the `master` branch:
+
+    ![](../assets/jenkins-ui-trigger-build.png)
 
 1. If all builds completed successfully, you should see something like this:
 
@@ -21,13 +25,13 @@ In this lab, we'll deploy the sockshop application to the `dev` namespace.
 
     ![](../assets/jenkins-failed-builds.png)
 
-1. Execute the pipeline for that job again in case there are any failed builds by selecting the job and then executing the `master` branch:
+1. Re-trigger the build for any failed jobs by opening the project and then clicking on the `Schedule a Build` button on the right side of the `master` branch:
 
-    ![](../assets/jenkins-ui-trigger-build.png)
+    ![](../assets/jenkins-ui-trigger-failed-build.png)
 
 1. This lab concludes, once all build pipelines have been run successfully.
 
----  
+---
 
 [Previous Step: Deploy Jenkins](../3_Deploy_Jenkins) :arrow_backward: :arrow_forward: [Next Step: Clone GitHub Repositories](../5_Clone_Gitea_Repositories)
 
