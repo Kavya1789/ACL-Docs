@@ -17,6 +17,8 @@ In this lab, you will clone the Gitea repositories we've forked in lab 2 to your
     ./cloneall.sh <GITEA IP ADDRESS>
     ```
 
+**Note:** Please ensure that you are not using a cloud backup (e.g. Dropbox, OneDrive) directory for cloning the sockshop repos as this will cause errors when trying to commit and push changes to the Git repository.
+
 ## Steps - Windows
 
 1. Download the `cloneall.ps1` script that is in this folder to your local machine
@@ -28,24 +30,28 @@ In this lab, you will clone the Gitea repositories we've forked in lab 2 to your
     PowerShell.exe -ExecutionPolicy Bypass -File .\cloneall.ps1 <GITEA IP ADDRESS>
     ```
 
-    which will git clone these repos from your Gitea organization:
+**Note:** Please ensure that you are not using a cloud backup (e.g. Dropbox, OneDrive) directory for cloning the sockshop repos as this will cause errors when trying to commit and push changes to the Git repository.
 
-    ```bash
-    carts
-    catalogue
-    front-end
-    jenkins-release-branch
-    k8s-deploy-staging
-    k8s-deploy-production
-    orders
-    payment
-    queue-master
-    shipping
-    sockshop-infrastructure 
-    user
-    ```
+## Steps - Cloned repos
 
-1. This concludes the lab
+The following repos will be cloned from the Gitea Organization:
+
+```bash
+carts
+catalogue
+front-end
+jenkins-release-branch
+k8s-deploy-staging
+k8s-deploy-production
+orders
+payment
+queue-master
+shipping
+sockshop-infrastructure 
+user
+```
+
+This concludes the lab
 
 ---
 
