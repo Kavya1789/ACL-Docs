@@ -2,17 +2,16 @@
 
 In this lab you'll learn how to create a container image and how to run a container based on this image. During this activity you will pull an image from a global container registry to get hands-on experience with container registries in general.
 
-## Step 1: Create the Dockerfile and script
+## Step 1: View the Dockerfile and script
 
-1. Create a directory for the docker artifacts
+1. View the Dockerfile using an editor.
 
     ```bash
     (bastion)$ cd ~
-    (bastion)$ mkdir -p docker/
     (bastion)$ cd docker/
     ```
 
-1. Create a new file named `Dockerfile` and add the following content:
+1. The Dockerfile should look like this:
 
     ```docker
     FROM alpine:latest
@@ -23,21 +22,15 @@ In this lab you'll learn how to create a container image and how to run a contai
     CMD ["hello_world.sh"]
     ```
 
-1. Create a new file named `hello_world.sh` and add the following content:
+1. The bash script referenced in the Dockerfile looks like this:
 
     ```bash
     echo "Hello World from a Docker Container."
     ```
 
-1. Ensure that the script is an executable:
-
-    ```bash
-    (bastion)$ chmod +x hello_world.sh
-    ```
-
 ## Step 2. Build and Tag a Container Image
 
-1. Build the container image (`-t` specifies the repository and a tag). The `$USER` variable will tag the image with your username.
+1. Build the container image (`-t` specifies the repository and a tag). The `$USER` variable will tag the image with your username. Make sure to include the (.) at the end of the command to tell docker that the Dockerfile is on the current working directory.
 
     ```bash
     (bastion)$ docker build -t acl/hello-world:$USER .
