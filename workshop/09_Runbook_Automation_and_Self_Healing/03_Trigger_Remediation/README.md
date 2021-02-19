@@ -20,7 +20,7 @@ The campaign playbook has already been set up in [Deploy ansible AWX](../01_Depl
 
 1. Run the promotional campain
     - Navigate to _Templates_ in ansible AWX
-    - Click on the "rocket" icon (🚀) next to your _start campaign_ job template
+    - Click on the "rocket" icon (🚀) next to your _start-campaign_ job template
     ![start-campaign](../assets/ansible-awx-start-campaign.png)
     - Adjust the values accordingly for you promotional campaign:
       - Set the value for `promotion_rate: '20'` to allow for 20 % of the user interactions to receive the promotional gift

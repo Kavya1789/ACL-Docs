@@ -60,12 +60,12 @@ In order to have this step go faster, an automatic installation option has been 
 
 1. After the playbook run completes, check the status of the deployment by running `kubectl get pods --namespace awx`
 
-```bash
-(bastion)$ kubectl get pods --namespace awx
-NAME                             READY     STATUS    RESTARTS   AGE
-awx-2558692395-2r8ss             4/4       Running   0          29s
-awx-postgresql-355348841-kltkn   1/1       Running   0          1m
-```
+    ```bash
+    (bastion)$ kubectl get pods --namespace awx
+    NAME                             READY     STATUS    RESTARTS   AGE
+    awx-2558692395-2r8ss             4/4       Running   0          29s
+    awx-postgresql-355348841-kltkn   1/1       Running   0          1m
+    ```
 
 1. Login to ansible AWX with the following credentials:
 
