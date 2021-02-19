@@ -4,11 +4,11 @@ param
 (
   [Parameter(Mandatory)]
   [string]
-  ${Gitea-IP}
+  ${Gitea-URL}
 
 )
 
-$uri = "https://gitea.${Gitea-IP}.nip.io/api/v1/orgs/sockshop/repos"
+$uri = "${Gitea-URL}/api/v1/orgs/sockshop/repos"
 
 #Check if Git is installed
 if(Get-Command git -errorAction SilentlyContinue){}
@@ -63,7 +63,6 @@ catch{
      Write-Host "No repositories found in sockshop"
      exit 1
 }
-
 
 $current_dir = [string](Get-Location)
 $new_dir = "${current_dir}\sockshop"
