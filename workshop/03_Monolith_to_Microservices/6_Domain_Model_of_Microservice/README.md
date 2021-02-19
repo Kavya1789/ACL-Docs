@@ -186,7 +186,7 @@ For more details about this lab, please take a look at the following blog post: 
     (bastion) $ kubectl create -f manifests-ticketmonster/ticket-ordersdb.yml
 
     persistentvolumeclaim/ticketmonster-ordersdb-mysqldata created
-    deployment.extensions/orders-db created
+    deployment.apps/orders-db created
     service/orders-db created
     configmap/mysql-initdb-config created
     ```

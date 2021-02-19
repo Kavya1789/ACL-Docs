@@ -79,7 +79,7 @@ In this lab you'll use feature flags and Kubernetes routing mechanism to smoothl
     ```
     (bastion) $ kubectl create -f manifests-ticketmonster/ticket-orders.yml
 
-    deployment.extensions/ticketmonster-orders-service created
+    deployment.apps/ticketmonster-orders-service created
     service/ticketmonster-orders-service created
     ```
 
@@ -160,7 +160,7 @@ In this lab you'll use feature flags and Kubernetes routing mechanism to smoothl
     ```
     (bastion) $ kubectl apply -f manifests-ticketmonster/ticket-backend-v2.yml
 
-    deployment.extensions/ticketmonster-backend-v2 created
+    deployment.apps/ticketmonster-backend-v2 created
     service/ticketmonster-backend-v2 created
     ```
 
@@ -239,8 +239,8 @@ In this lab you'll use feature flags and Kubernetes routing mechanism to smoothl
     ```
     (bastion) $ kubectl apply -f manifests-ticketmonster/ticket-ui-v2.yml
 
-    deployment.extensions/ticketmonster-ui configured
-    service/ticketmonster-ui configured
+    deployment.apps/ticketmonster-ui configured
+    service/ticketmonster-ui unchanged
     ```
 
 ## Step 3: Switch feature flag and test your Microservice
