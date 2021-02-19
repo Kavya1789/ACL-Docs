@@ -80,8 +80,8 @@ To start breaking up the monolith, a best practice is extracting the user interf
 
     ```bash
     (bastion) $ kubectl apply -f manifests-ticketmonster/ticket-ui.yml
-
-    deployment.extensions/ticketmonster-ui created
+    
+    deployment.apps/ticketmonster-ui created
     service/ticketmonster-ui created
     ```
 

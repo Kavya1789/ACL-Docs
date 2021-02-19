@@ -106,7 +106,7 @@ In this lab you'll learn how to move a monolithic application to a cloud platfor
     (bastion) $ kubectl create -f manifests-ticketmonster/ticket-db.yml
 
     persistentvolumeclaim/ticketmonster-db-mysqldata created
-    deployment.extensions/ticketmonster-db created
+    deployment.apps/ticketmonster-db created
     service/ticketmonster-db created
     ```
 
@@ -202,7 +202,7 @@ In this lab you'll learn how to move a monolithic application to a cloud platfor
     ```
     (bastion) $ kubectl create -f manifests-ticketmonster/ticket-monolith.yml
 
-    deployment.extensions/ticketmonster-monolith created
+    deployment.apps/ticketmonster-monolith created
     service/ticketmonster-monolith created
     ```
 
