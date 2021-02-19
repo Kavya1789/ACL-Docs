@@ -4,7 +4,7 @@ In this lab, we'll promote all components that are currently in the `staging` na
 
 ## Steps
 
-### Step 1: In your Jenkins instance, trigger the `k8s-deploy-production` pipeline:
+### Step 1: In your Jenkins instance, trigger the `k8s-deploy-production` pipeline
 
 ![trigger k8s-deploy-production](../assets/trigger-k8s-deploy-production.png)
 
@@ -17,9 +17,11 @@ Naturally, we dispatch a deployment event to all affected services. This might n
 1. In your Dynatrace tenant, go to **Synthetic** and click on **Create a synthetic monitor**
 1. Click on **Create a browser monitor**.
 1. Type in the public url of your front-end and give your monitor a name (e.g. Sockshop Monitor).
-    ```
+
+    ```bash
     (bastion)$ echo http://$(kubectl get svc istio-ingressgateway -n istio-system -o json | jq -r .status.loadBalancer.ingress[].ip)
     ```
+
 1. At *Frequency and locations* set Monitor my website every **5** minutes.
 1. Select all Locations and finally click on **Monitor single URL** and **Create browser monitor**.
 1. Now, please wait a couple of minutes.

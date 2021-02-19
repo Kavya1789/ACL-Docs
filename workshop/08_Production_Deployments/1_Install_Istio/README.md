@@ -131,5 +131,6 @@ In this step, we'll enable Istio's automatic sidecar injection for one k8s names
     ```
 
 ---
-:arrow_forward: [Next Step: Create front-end v2](../2_Deploy_to_production)
+[Next Step: Deploy to Production](../2_Deploy_to_production):arrow_forward:
+
 :arrow_up_small: [Back to overview](../)
