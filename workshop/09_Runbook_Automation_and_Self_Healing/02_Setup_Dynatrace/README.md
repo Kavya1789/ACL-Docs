@@ -1,4 +1,4 @@
-# Integration Ansible Tower Runbook in Dynatrace
+# Integration Ansible AWX jobs in Dynatrace
 
 Let us integration the defined _remediation runbook_ in Dynatrace in a way, that it will be called each time Dynatrace detects a problem. Please note that in a more enterprise scenario, you might want to define _Alerting profiles_ to be able to control in a more fine-grained way when to call a remediation runbook.
 
@@ -10,21 +10,22 @@ Let us integration the defined _remediation runbook_ in Dynatrace in a way, that
     ![notifications](../assets/setup-notifications.png)
     ![integration](../assets/ansible-integration.png)
 
-
-1. Enter your Ansible Tower job template URL and Ansible Tower credentials.
+1. Enter your Ansible AWX job template URL and Ansible AWX credentials.
     - Name: e.g., "remediation playbook"
-    - Ansible Tower job template URL: copy & paste the Ansible Tower job URL from your Ansible Tower remediation job template, e.g., `https://XX.XXX.XX.XXX/#/templates/job_template/18`
-    - Username: your Ansible Tower username `admin`
-    - Password: your Ansible Tower password `dynatrace`
+    - Ansible AWX job template URL: copy & paste the Ansible AWX job URL from your Ansible AWX remediation job template, e.g., `https://awx.XX.XXX.XX.XXX.nip.io/#/templates/job_template/18`
+    - Username: your Ansible AWX username `admin`
+    - Password: your Ansible AWX password `dynatrace`
     - Set the alert profile to `Sockshop Error Profile'
     - Click "Send test notification" --> a green banner should appear
     - Save the integration
 
     ![integration successful](../assets/ansible-integration-successful.png)
 
-## Step 2: Review Ansible Tower
-1. Login (or navigate back) to your Ansible Tower instance and check what happenend when setting up the integration.
-    - Navigate to _Jobs_ and click on your _remediation-user0_ job
+## Step 2: Review Ansible AWX
+
+1. Login (or navigate back) to your ansible AWX instance and check what happenend when setting up the integration.
+    - Navigate to _Jobs_ and click on the failed job named `remediation`
+    ![ansible-failed-job](../assets/ansible-failed-job.png)
     - You can see all tasks from the playbook that have been triggered by the integration.
 
     ![integration run](../assets/ansible-integration-test.png)
@@ -43,15 +44,15 @@ Click on the **ItemsController** and then on the three dots ( <kbd>...</kbd> ) n
 ![service-edit](../assets/dynatrace-service-edit.png)
 
 On the next screen, edit the anomaly detection settings as seen in the following screenshot.
-- **Globaly anomaly detection** has to be **turned off**
-- Detect increases in **failure rate** using **fixed thresholds**
-- Alert if **10 %** custom failure rate threshold is exceed during any 5-minute period.
-- Sensitivity: **High**
+    - **Globaly anomaly detection** has to be **turned off**
+    - Detect increases in **failure rate** using **fixed thresholds**
+    - Alert if **10 %** custom failure rate threshold is exceed during any 5-minute period.
+    - Sensitivity: **High**
 
 ![anomaly detection](../assets/anomaly-detection.png)
 
 ---
 
-[Previous Step: Setup Tower](../02_Setup_Tower) :arrow_backward: :arrow_forward: [Next Step: Run Playbook](../04_Run_Playbook)
+[Previous Step: Deploy Ansible AWX](../01_Deploy_Ansible_AWX) :arrow_backward: :arrow_forward: [Next Step: Trigger Remediation](../03_Trigger_Remediation)
 
 :arrow_up_small: [Back to overview](../)
