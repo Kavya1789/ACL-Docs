@@ -20,7 +20,6 @@ In this lab, we'll deploy the sockshop application to the `dev` namespace.
 
     ![](../assets/jenkins-sockshop-folder.png)
 
-
 1. If there are any builds that failed, you will see a storm cloud next to the name of the job:
 
     ![](../assets/jenkins-failed-builds.png)
