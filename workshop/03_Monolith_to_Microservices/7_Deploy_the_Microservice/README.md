@@ -274,7 +274,8 @@ In this lab you'll use feature flags and Kubernetes routing mechanism to smoothl
 
 ![orders-microservice](../assets/orders-microservice.png)
 
-## (Optional) Clean up resources created
+## Step 6 - Important - Clean up resources created
+To free up some resources for the next labs we will need to delete our ticketmonster application.
 
     kubectl delete ns ticketmonster
     docker stop $USER
