@@ -14,7 +14,7 @@ In this lab, you will clone the Gitea repositories we've forked in lab 2 to your
 1. Clone all projects from the Gitea organization you've created earlier to your local machine:
 
     ```bash
-    ./cloneall.sh https://gitea.<IP-ADDRESS>.nip.io
+    ./cloneall.sh http://gitea.<IP-ADDRESS>.nip.io
     ```
 
 **Note:** Please ensure that you are not using a cloud backup (e.g. Dropbox, OneDrive) directory for cloning the sockshop repos as this will cause errors when trying to commit and push changes to the Git repository.
@@ -27,7 +27,7 @@ In this lab, you will clone the Gitea repositories we've forked in lab 2 to your
 1. Execute commant to clone all repos from the Gitea organization you've created earlier to your local machine:
 
     ```powershell
-    PowerShell.exe -ExecutionPolicy Bypass -File .\cloneall.ps1 https://gitea.<IP-ADDRESS>.nip.io
+    PowerShell.exe -ExecutionPolicy Bypass -File .\cloneall.ps1 http://gitea.<IP-ADDRESS>.nip.io
     ```
 
 **Note:** Please ensure that you are not using a cloud backup (e.g. Dropbox, OneDrive) directory for cloning the sockshop repos as this will cause errors when trying to commit and push changes to the Git repository.

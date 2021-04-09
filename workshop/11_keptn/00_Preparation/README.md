@@ -19,7 +19,7 @@ We will need to create a new repo in your Gitea dynatrace org for the project we
 Go to https://developer.servicenow.com/ and register for a new account.
 Once your account has been created and you have signed in to the developer portal, click on `Manage` at the top of the screen. Here you can request your free developer instance.
 
-Sign up for a `Orlando` or `Paris` release instance on the [ServiceNow Developer Portal](https://developer.servicenow.com/)
+Sign up for a `Paris` or `Quebec` release instance on the [ServiceNow Developer Portal](https://developer.servicenow.com/)
 
 ## Step 4: Activate required ServiceNow plugins
 
@@ -38,5 +38,4 @@ The following plugins must be enabled prior to this lab:
 
 :arrow_up_small: [Back to overview](../)
 
-[Activate a plugin on a personal developer instance
-]: https://docs.servicenow.com/bundle/paris-platform-administration/page/administer/plugins/task/activate-plugin-pdi.html
+[Activate a plugin on a personal developer instance]: https://docs.servicenow.com/bundle/quebec-platform-administration/page/administer/plugins/task/activate-plugin-pdi.html

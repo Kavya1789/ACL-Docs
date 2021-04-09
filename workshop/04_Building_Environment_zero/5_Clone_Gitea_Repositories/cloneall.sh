@@ -8,11 +8,11 @@ if [ -z $1 ]
 then
     echo "Please provide Gitea URL"
     echo ""
-    echo "$ ./cloneall.sh https://gitea.<IP-ADDRESS>.nip.io"
+    echo "$ ./cloneall.sh http://gitea.<IP-ADDRESS>.nip.io"
     exit 1
 fi
 
-GITEA_URL=$1
+GITEA_URL=$(echo $1 | xargs | sed -e 's/\/$//')
 
 GITEA_ORG=$GITEA_URL/sockshop
 

@@ -8,7 +8,7 @@ param
 
 )
 
-$uri = "${Gitea-URL}/api/v1/orgs/sockshop/repos"
+$uri = ${Gitea-URL}.TrimEnd('/') + "/api/v1/orgs/sockshop/repos"
 
 #Check if Git is installed
 if(Get-Command git -errorAction SilentlyContinue){}
