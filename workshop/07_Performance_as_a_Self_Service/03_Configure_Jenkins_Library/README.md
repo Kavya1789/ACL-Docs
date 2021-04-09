@@ -1,4 +1,5 @@
 # Configure Keptn library for Jenkins
+
 In this lab you'll learn how to configure the Keptn library for Jenkins.
 ![keptn](./assets/evalpipeline_animated.gif)
 
@@ -6,33 +7,14 @@ In this lab you'll learn how to configure the Keptn library for Jenkins.
 
 Following the `everything as code` best practice, we will update the Jenkins deployment using Helm.
 
-1. On the bastion find the `jenkins-values.yml` file using the following
+1. On the bastion and run the commands below to add the required libraries to the Jenkins deployment:
 
     ```bash
     (bastion)$ cd
-    (bastion)$ vi ~/jenkins/helm/jenkins-values.yml
+    (bastion)$ rm ~/jenkins/helm/jenkins-values.yml && mv ~/jenkins/helm/jenkins-values-keptn.yml ~/jenkins/helm/jenkins-values.yml
     ```
 
-    **Note:** To activate the line numbering on vim, set the number flag, :one: Press the `Esc` key to switch to command mode. :two: Press `:` (colon) and the cursor will move at the bottom left corner of the screen. Type `set number` or `set nu` and hit Enter.
-
-1. Find the code block that defines the dynatrace libs (near or at line 483):
-
-    ```yaml
-          globalLibraries:
-            libraries:
-            - name: "dynatrace"
-              retriever:
-                modernSCM:
-                  scm:
-                    git:
-                      id: "6813bac3-894e-434d-9abb-bd41eeb72f88"
-                      remote: "https://github.com/dynatrace-ace/dynatrace-jenkins-library.git"
-                      traits:
-                      - "gitBranchDiscovery"
-            ### add keptn library under this line
-    ```
-
-1. Add the following code block under the line commented out and save the file **(make sure indentation is correct)**:
+1. The following code block was added to the Jenkins values file.
 
     ```yaml
             - defaultVersion: "master"
@@ -46,7 +28,7 @@ Following the `everything as code` best practice, we will update the Jenkins dep
                       - "gitBranchDiscovery"
     ```
 
-1. After adding the keptn libs, the Jenkins global libraries code block should look similar to this:
+1. After adding the keptn Jenkins libraries, the Jenkins global libraries code block looks like this:
 
     ```yaml
           globalLibraries:
@@ -60,7 +42,6 @@ Following the `everything as code` best practice, we will update the Jenkins dep
                       remote: "https://github.com/dynatrace-ace/dynatrace-jenkins-library.git"
                       traits:
                       - "gitBranchDiscovery"
-            ### add keptn library under this line
             - defaultVersion: "master"
               name: "keptn-library"
               retriever:
@@ -72,13 +53,12 @@ Following the `everything as code` best practice, we will update the Jenkins dep
                       - "gitBranchDiscovery"
     ```
 
-1. Apply the configurations to Jenkins using helm:
+1. Apply the new configurations to Jenkins via helm by executing the script below:
 
     ```bash
     (bastion)$ cd
     (bastion)$ ./deployJenkins.sh
     ```
-
 
 1. Go into Jenkins and review the [keptn library](https://github.com/keptn-sandbox/keptn-jenkins-library.git) installation `Jenkins > Manage Jenkins > Configure System > Global Pipeline Libraries`.
 ![keptn](./assets/keptn-jenkins-library1.png)
@@ -98,14 +78,22 @@ Retrieve the Keptn credentials using the following
 
 ## Step 3: Store Keptn credentials in Jenkins
 
- Inside Jenkins go into `Manage Jenkins > Manage credentials ` and select the first element with the house icon.
+Inside Jenkins go into `Manage Jenkins > Manage credentials ` and select the first element with the house icon.
 ![keptn](./assets/jenkins-store.png)
 
 Then click `Global credentials > Add credentials`, use the dropdown Kind and select `secret text` and input the values from step 2. Repeat the process for each variable. For the ID field use the name from the images.
 
-![keptn](./assets/keptn-api1.png)
-![keptn](./assets/keptn-bridge1.png)
-![keptn](./assets/keptn-endpoint1.png)
+#### Keptn API Token Crdential
+
+![keptn](./assets/keptn-api-credential.png)
+
+#### Keptn Bridge Credential
+
+![keptn](./assets/keptn-bridge-credential.png)
+
+#### Keptn Endpoint Credential
+
+![keptn](./assets/keptn-endpoint-credential.png)
 
 [Previous Step: Configure Keptn & Dynatrace integration](../02_Configure_Keptn_Dynatrace_Integration) :arrow_backward: :arrow_forward: [Next Step: Define Request Attributes](../04_Define_Request_Attributes)
 
