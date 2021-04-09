@@ -1,4 +1,4 @@
-# Gathering Facts and Installing the Dynatrace operator
+# Gathering Facts and Installing the OneAgent operator
 
 During this section we will gather all the information that we will lateron use during the labs. We will run a script that places all this information in a credentials file which other scripts can then pick up
 
@@ -45,24 +45,24 @@ During this section we will gather all the information that we will lateron use 
    } 
    ```
 
-## Step 2 - Deploying the Dynatrace Operator
+## Step 2 - Deploying the OneAgent operator
 
 Dynatrace can be a great help in rearchitecting a monolithic application to a microservices one. It will give you insights on how many calls are being made to this potential new microservice, which is imperative in microservices design as the overhead of communication might be a deal breaker.
 
-We will cover the intristics of the Dynatrace operator in a future section and at this point we will focus only on getting the OneAgent installed.
+We will cover the intristics of the OneAgent operator in a future section and at this point we will focus only on getting the OneAgent installed.
 
-For that we have provided a Dynatrace Operator installation script which will perform all the necesary steps for you.
+For that we have provided a OneAgent operator installation script which will perform all the necesary steps for you.
 
 On your bastion, execute the following:
 
 ```bash
 (bastion)$ cd ~
-(bastion)$ ./deployDynatraceOperator.sh
+(bastion)$ ./deployOneAgentOperator.sh
 ```
 
 This script will take information you have entered in the previous step and use it to automatically deploy the OneAgent. Automation at its finest!
 
-For more information about installing the Dynatrace operator visit this [page.](https://www.dynatrace.com/support/help/technology-support/cloud-platforms/kubernetes/monitor-kubernetes-environments/)
+For more information about installing the OneAgent operator visit this [page.](https://www.dynatrace.com/support/help/technology-support/cloud-platforms/kubernetes/monitor-kubernetes-environments/)
 
 ---
 
